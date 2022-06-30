@@ -1,5 +1,105 @@
-font-family: 'Noto Sans JP', sans-serif;
+body{
+  font-family: 'Noto Sans JP', sans-serif;
+  background-color: #FFFFFF;
+}
+
+header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: fixed;
+  background-color: #FFFFFF;
+  z-index: 1;
+  width: 100%;
+  height: 60px;
+}
 
 .HeaderRight{
   display: flex;
+  justify-content: space-between;
+}
+
+.HeaderTopPage, .HeaderQuiz,{
+  padding: auto;
+  margin: auto;
+}
+
+.HeaderLogo{
+  padding: auto auto auto 3%;
+  margin: auto auto auto 3%;
+}
+
+.HeaderTwitter,.FooterTwitter{
+  width: 25px;
+  height: 20px;
+  box-sizing: border-box;
+  border: 1px solid #EEEEEE;
+  border-radius: 50%;
+  /* margin: auto; */
+  padding: 25%;
+}
+
+.HeaderInstagram,.FooterInstagram{
+  width: 24px;
+  height: 24px;
+  box-sizing: border-box;
+  border: 1px solid #EEEEEE;
+  border-radius: 50%;
+  margin: auto;
+  padding: 25%;
+}
+
+main{
+  padding-top: 60px;
+}
+
+.POSSELine{
+  background-image: url(./assets-ph1-website-main/img/bg-line.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: auto;
+  height: auto;
+  text-align: center;
+  background-color: rgba(00,113,188,1);
+  opacity: 0.9;
+  margin: 5% 0 5% 0;
+}
+
+.LineIcon::before{
+  background: radial-gradient(#fff 60%, transparent 60%);;
+}
+
+.POSSELineTytle img{
+  width: 3%;
+  height: 3%;
+}
+
+.WhatisPOSSE{
+  text-align: center;
+}
+
+footer{
+  width: fit-content;
+  height: fit-content;
+  margin: 0 auto;
+}
+
+.FooterWeb{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.FooterLogo{
+  margin: 20% auto auto auto;
+}
+
+.FooterSNS{
+  display: flex;
+  flex-direction: row;
+}
+
+.FooterCopyright{
+  text-align: center;
 }
