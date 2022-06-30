@@ -1,3 +1,27 @@
+/* icon fonts */
+@font-face {
+  font-display: inline-block;
+  font-family: "posse-icon";
+  font-style: normal;
+  font-weight: normal;
+  src: url("./assets-ph1-website-main/fonts/posse-icon.ttf?bbqgr3") format("truetype"), url("./assets-ph1-website-main/fonts/posse-icon.woff?bbqgr3") format("woff"), url("./assets-ph1-website-main/fonts/posse-icon.svg?bbqgr3#posse-icon") format("svg");
+}
+i, .icomoon-liga {
+  /* speak: never; */
+  -ms-font-feature-settings: "liga" 1;
+  font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "posse-icon" !important;
+  font-style: normal;
+  font-variant: normal;
+  font-variant-ligatures: discretionary-ligatures;
+  font-weight: normal;
+  letter-spacing: 0;
+  line-height: 1;
+  text-transform: none;
+}
+
 body{
   font-family: 'Noto Sans JP', sans-serif;
   background-color: #FFFFFF;
@@ -16,17 +40,24 @@ header{
 
 .HeaderRight{
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
 }
 
-.HeaderTopPage, .HeaderQuiz,{
+.HeaderTop{
   padding: auto;
   margin: auto;
+  gap: 36px;
 }
 
 .HeaderLogo{
   padding: auto auto auto 3%;
   margin: auto auto auto 3%;
+}
+
+.HeaderSNS{
+  display: flex;
+  flex-direction: row;
 }
 
 .HeaderTwitter,.FooterTwitter{
@@ -36,7 +67,15 @@ header{
   border: 1px solid #EEEEEE;
   border-radius: 50%;
   /* margin: auto; */
-  padding: 25%;
+  padding: 30px;
+}
+
+.HeaderTwitter::before,.FooterTwitter::before{
+  content: "\ea96";
+}
+
+.HeaderInstagram::before,.FooterInstagram::before{
+  content: "\ea92";
 }
 
 .HeaderInstagram,.FooterInstagram{
@@ -46,7 +85,7 @@ header{
   border: 1px solid #EEEEEE;
   border-radius: 50%;
   margin: auto;
-  padding: 25%;
+  padding: 30px;
 }
 
 main{
@@ -54,25 +93,47 @@ main{
 }
 
 .POSSELine{
-  background-image: url(./assets-ph1-website-main/img/bg-line.jpg);
-  background-size: contain;
+  background: url(./assets-ph1-website-main/img/bg-line.jpg) center center/cover;
+  border-radius: 56px;
+  overflow: hidden;
+  padding: 68px;
+  position: relative;
   background-repeat: no-repeat;
-  background-position: center;
-  width: auto;
-  height: auto;
   text-align: center;
-  background-color: rgba(00,113,188,1);
-  opacity: 0.9;
-  margin: 5% 0 5% 0;
+  max-width: 1032px;
+  color: #FFFFFF;
+  width: 100%;
+  margin: 0 auto;
+
 }
 
-.LineIcon::before{
-  background: radial-gradient(#fff 60%, transparent 60%);;
+.POSSELine::before{
+  background-color: rgba(0, 113, 188, 0.9);
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
 
-.POSSELineTytle img{
+.LineIcon:before{
+  background: radial-gradient(#fff 60%, transparent 60%);
+  color: #00c300;
+  content: "\e900";
+}
+
+/* .POSSELineTytle img{
   width: 3%;
   height: 3%;
+} */
+
+.POSSELineText,.POSSELineTytle,.POSSELineAdd{
+  position: relative;
+}
+
+.POSSELineLink::before{
+  content: "\e901";
 }
 
 .WhatisPOSSE{
@@ -80,8 +141,6 @@ main{
 }
 
 footer{
-  width: fit-content;
-  height: fit-content;
   margin: 0 auto;
 }
 
@@ -89,10 +148,12 @@ footer{
   text-align: center;
   display: flex;
   flex-direction: column;
+  border-top: solid 1px #eee;
+  border-bottom: solid 1px #eee;;
 }
 
 .FooterLogo{
-  margin: 20% auto auto auto;
+  margin: 20px auto auto auto;
 }
 
 .FooterSNS{
