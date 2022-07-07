@@ -58,6 +58,9 @@ header{
 .HeaderSNS{
   display: flex;
   flex-direction: row;
+  /* display: list-item;
+    text-align: -webkit-match-parent; */
+  
 }
 
 .HeaderTwitter,.FooterTwitter{
@@ -72,10 +75,12 @@ header{
 
 .HeaderTwitter::before,.FooterTwitter::before{
   content: "\ea96";
+  color: gray;
 }
 
 .HeaderInstagram::before,.FooterInstagram::before{
   content: "\ea92";
+  color: gray;
 }
 
 .HeaderInstagram,.FooterInstagram{
@@ -84,7 +89,7 @@ header{
   box-sizing: border-box;
   border: 1px solid #EEEEEE;
   border-radius: 50%;
-  margin: auto;
+  margin: 0;
   padding: 30px;
 }
 
