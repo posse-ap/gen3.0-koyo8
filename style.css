@@ -50,6 +50,10 @@ header{
   gap: 36px;
 }
 
+.HeaderTopPage{
+  margin: 24px;
+}
+
 .HeaderLogo{
   padding: auto auto auto 3%;
   margin: auto auto auto 3%;
@@ -95,6 +99,25 @@ header{
 
 main{
   padding-top: 60px;
+}
+
+.MainVisual{
+  display: flex;
+  justify-content: flex-end;
+  right: 0;
+  position: relative;
+}
+
+.MainVisual img{
+  width: 70%;
+  border-radius: 10% 0 0 10%;
+}
+
+.MainVisual::before{
+  content: "";
+  width: 100px;
+  height: 100px;
+  background-color: #00c300;
 }
 
 .POSSELine{
@@ -159,6 +182,10 @@ footer{
 
 .FooterLogo{
   margin: 20px auto auto auto;
+}
+
+.FooterSite{
+  margin: 24px;
 }
 
 .FooterSNS{
