@@ -36,6 +36,7 @@ header{
   z-index: 1;
   width: 100%;
   height: 60px;
+  z-index: 4;
 }
 
 .HeaderRight{
@@ -62,9 +63,7 @@ header{
 .HeaderSNS{
   display: flex;
   flex-direction: row;
-  /* display: list-item;
-    text-align: -webkit-match-parent; */
-  
+  margin-top: 20px;
 }
 
 .HeaderTwitter,.FooterTwitter{
@@ -73,8 +72,8 @@ header{
   box-sizing: border-box;
   border: 1px solid #EEEEEE;
   border-radius: 50%;
-  /* margin: auto; */
-  padding: 30px;
+  padding: 18px;
+  margin: 10px;
 }
 
 .HeaderTwitter::before,.FooterTwitter::before{
@@ -93,8 +92,8 @@ header{
   box-sizing: border-box;
   border: 1px solid #EEEEEE;
   border-radius: 50%;
-  margin: 0;
-  padding: 30px;
+  padding: 18px;
+  margin: 10px;
 }
 
 main{
@@ -109,15 +108,35 @@ main{
 }
 
 .MainVisual img{
-  width: 70%;
+  width: 976px;
   border-radius: 10% 0 0 10%;
 }
 
 .MainVisual::before{
   content: "";
-  width: 100px;
-  height: 100px;
-  background-color: #00c300;
+  width: 500px;
+  height: 281px;
+  background-color: #EFF2F5;
+  transform: translate(75px,140px);
+  border-radius: 24px;
+}
+
+.HeroText{
+  position: absolute;
+  transform: translate(200px,160px);
+  z-index: 2;
+}
+
+.HeroTextTop{
+  color: #0071BC;
+  margin: 20px 0;
+  font-weight: 700;
+}
+
+.HeroTextMain{
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 80px;
 }
 
 .POSSELine{
@@ -191,6 +210,7 @@ footer{
 .FooterSNS{
   display: flex;
   flex-direction: row;
+  margin: 12px auto 40px auto;
 }
 
 .FooterCopyright{
