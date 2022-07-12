@@ -101,7 +101,7 @@ main{
 }
 
 .Hero{
-  /* position: absolute; */
+  max-height: 750px;
 }
 
 .MainVisual{
@@ -149,48 +149,20 @@ main{
   line-height: 80px;
 }
 
-.POSSELine{
-  background: url(./assets-ph1-website-main/img/bg-line.jpg) center center/cover;
-  border-radius: 56px;
-  overflow: hidden;
-  padding: 68px;
-  position: relative;
-  background-repeat: no-repeat;
-  text-align: center;
-  max-width: 1032px;
-  color: #FFFFFF;
-  width: 100%;
-  margin: 0 auto;
-
+.HeroScroll{
+  padding: 0 0 0 40px;
+  gap: 6px;
+  font-size: 14px;
 }
 
-.POSSELine::before{
-  background-color: rgba(0, 113, 188, 0.9);
+.HeroScroll::before{
   content: "";
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
-}
-
-.LineIcon:before{
-  background: radial-gradient(#fff 60%, transparent 60%);
-  color: #00c300;
-  content: "\e900";
-}
-
-/* .POSSELineTytle img{
-  width: 3%;
-  height: 3%;
-} */
-
-.POSSELineText,.POSSELineTytle,.POSSELineAdd{
-  position: relative;
-}
-
-.POSSELineLink::before{
-  content: "\e901";
+  background-color: #ccc;
+  border-radius: 8px;
+  content: "";
+  display: inline-block;
+  height: 8px;
+  width: 8px;
 }
 
 .AboutTitle{
@@ -225,7 +197,87 @@ color: #0071BC;
   width: 472px;
   margin: auto 24px;
   color: #333333;
+}
 
+.POSSELine{
+  background: url(./assets-ph1-website-main/img/bg-line.jpg) center center/cover;
+  border-radius: 56px;
+  overflow: hidden;
+  padding: 68px;
+  position: relative;
+  background-repeat: no-repeat;
+  text-align: center;
+  max-width: 1032px;
+  color: #FFFFFF;
+  width: 100%;
+  margin: 100px auto 50px auto;
+}
+
+.POSSELine::before{
+  background-color: rgba(0, 113, 188, 0.9);
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+/* .LineIcon{
+  font-size: 36px;
+  font-weight: 300;
+  line-height: 180%;
+  padding-right: 0.1em;
+
+} */
+
+.POSSELineTytle{
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 180%;
+}
+
+.LineIcon:before{
+  background: radial-gradient(#fff 60%, transparent 60%);
+  color: #00c300;
+  content: "\e900";
+  font-size: 110%;
+  vertical-align: baseline;
+  margin: 10px;
+}
+
+/* .POSSELineTytle img{
+  width: 3%;
+  height: 3%;
+} */
+
+.POSSELineText,.POSSELineTytle,.POSSELineAddText{
+  position: relative;
+}
+
+.POSSELineText{
+  font-weight: 100;
+  font-size: 14px;
+  letter-spacing: 2px;
+  line-height: 160%;
+}
+
+.POSSELineAdd{
+  gap: 20px;
+}
+
+.POSSELineAddText{
+  line-height: 100px;
+  padding: 15px 130px;
+  border-radius: 96px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  background-color: #FFFFFF;
+  color: #666666;
+}
+
+.POSSELineLink::before{
+  content: "\e901";
 }
 
 footer{
@@ -237,11 +289,26 @@ footer{
   display: flex;
   flex-direction: column;
   border-top: solid 1px #eee;
-  border-bottom: solid 1px #eee;;
+  border-bottom: solid 1px #eee;
+  color: #666666;
+  font-weight: 400;
+  font-size: 14px;
 }
 
 .FooterLogo{
   margin: 20px auto auto auto;
+}
+
+.FooterLine{
+  background-color: #5FDF5B;
+  width: 288px;
+  height: 80px;
+  color: #FFFFFF;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin: 20px;
+  /* position: fixed; */
 }
 
 .FooterSite{
@@ -256,4 +323,8 @@ footer{
 
 .FooterCopyright{
   text-align: center;
+  color: #666666;
+  margin: 24px;
+  font-weight: 400;
+  font-size: 10px;
 }
