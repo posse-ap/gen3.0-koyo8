@@ -256,24 +256,25 @@ color: #0071BC;
 }
 
 .POSSELineText{
+  margin-top: 10px;
   font-weight: 100;
   font-size: 14px;
   letter-spacing: 2px;
-  line-height: 160%;
-}
-
-.POSSELineAdd{
-  gap: 20px;
+  line-height: 200%;
 }
 
 .POSSELineAddText{
   line-height: 100px;
-  padding: 15px 130px;
   border-radius: 96px;
   font-weight: 700;
   letter-spacing: 0.1em;
   background-color: #FFFFFF;
   color: #666666;
+  padding: 15px 20px 15px 150px;
+}
+
+.POSSELineLink{
+  margin-left: 100px;
 }
 
 .POSSELineLink::before{
@@ -299,6 +300,17 @@ footer{
   margin: 20px auto auto auto;
 }
 
+.FooterLineIcon{
+  margin-right: 10px;
+}
+
+.FooterLineIcon::before{
+  background: radial-gradient(#fff 60%, transparent 60%);
+  color: #00c300;
+  content: "\e900";
+  font-size: 40px;
+}
+
 .FooterLine{
   background-color: #5FDF5B;
   width: 288px;
@@ -306,9 +318,24 @@ footer{
   color: #FFFFFF;
   text-align: center;
   font-weight: 700;
+  font-size: 14px;
   letter-spacing: 0.1em;
   margin: 20px;
-  /* position: fixed; */
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  border-radius: 16px;
+  padding: 22px;
+  display: flex;
+}
+
+.FooterLineLink{
+  margin: auto 0 auto 40px;
+}
+
+.FooterLineLink::before{
+  content: "\e901";
+  font-size: 20px;
 }
 
 .FooterSite{
