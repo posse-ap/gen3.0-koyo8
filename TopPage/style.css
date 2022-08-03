@@ -200,7 +200,7 @@ color: #0071BC;
 }
 
 .POSSELine{
-  background: url(./assets-ph1-website-main/img/bg-line.jpg) center center/cover;
+  background: url(../assets-ph1-website-main/img/bg-line.jpg) center center/cover;
   border-radius: 56px;
   overflow: hidden;
   padding: 68px;
