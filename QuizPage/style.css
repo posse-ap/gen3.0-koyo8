@@ -1,0 +1,258 @@
+/* icon fonts */
+@font-face {
+  font-display: inline-block;
+  font-family: "posse-icon";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../assets-ph1-website-main/fonts/posse-icon.ttf?bbqgr3") format("truetype"), url("../assets-ph1-website-main/fonts/posse-icon.woff?bbqgr3") format("woff"), url("../assets-ph1-website-main/fonts/posse-icon.svg?bbqgr3#posse-icon") format("svg");
+}
+i, .icomoon-liga {
+  /* speak: never; */
+  -ms-font-feature-settings: "liga" 1;
+  font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "posse-icon" !important;
+  font-style: normal;
+  font-variant: normal;
+  font-variant-ligatures: discretionary-ligatures;
+  font-weight: normal;
+  letter-spacing: 0;
+  line-height: 1;
+  text-transform: none;
+}
+
+body{
+  font-family: 'Noto Sans JP', sans-serif;
+  background-color: #FFFFFF;
+}
+
+header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: fixed;
+  background-color: #FFFFFF;
+  z-index: 1;
+  width: 100%;
+  height: 60px;
+  z-index: 4;
+}
+
+.HeaderRight{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.HeaderTop{
+  padding: auto;
+  margin: auto;
+  gap: 36px;
+}
+
+.HeaderTopPage{
+  margin: 24px;
+}
+
+.HeaderLogo{
+  padding: auto auto auto 3%;
+  margin: auto auto auto 3%;
+}
+
+.HeaderSNS{
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+}
+
+.HeaderTwitter,.FooterTwitter{
+  width: 25px;
+  height: 20px;
+  box-sizing: border-box;
+  border: 1px solid #EEEEEE;
+  border-radius: 50%;
+  padding: 18px;
+  margin: 10px;
+}
+
+.HeaderTwitter::before,.FooterTwitter::before{
+  content: "\ea96";
+  color: gray;
+}
+
+.HeaderInstagram::before,.FooterInstagram::before{
+  content: "\ea92";
+  color: gray;
+}
+
+.HeaderInstagram,.FooterInstagram{
+  width: 24px;
+  height: 24px;
+  box-sizing: border-box;
+  border: 1px solid #EEEEEE;
+  border-radius: 50%;
+  padding: 18px;
+  margin: 10px;
+}
+
+main{
+  padding-top: 60px;
+}
+
+.POSSELine{
+  background: url(./assets-ph1-website-main/img/bg-line.jpg) center center/cover;
+  border-radius: 56px;
+  overflow: hidden;
+  padding: 68px;
+  position: relative;
+  background-repeat: no-repeat;
+  text-align: center;
+  max-width: 1032px;
+  color: #FFFFFF;
+  width: 100%;
+  margin: 100px auto 50px auto;
+}
+
+.POSSELine::before{
+  background-color: rgba(0, 113, 188, 0.9);
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+/* .LineIcon{
+  font-size: 36px;
+  font-weight: 300;
+  line-height: 180%;
+  padding-right: 0.1em;
+
+} */
+
+.POSSELineTytle{
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 180%;
+}
+
+.LineIcon:before{
+  background: radial-gradient(#fff 60%, transparent 60%);
+  color: #00c300;
+  content: "\e900";
+  font-size: 110%;
+  vertical-align: baseline;
+  margin: 10px;
+}
+
+/* .POSSELineTytle img{
+  width: 3%;
+  height: 3%;
+} */
+
+.POSSELineText,.POSSELineTytle,.POSSELineAddText{
+  position: relative;
+}
+
+.POSSELineText{
+  margin-top: 10px;
+  font-weight: 100;
+  font-size: 14px;
+  letter-spacing: 2px;
+  line-height: 200%;
+}
+
+.POSSELineAddText{
+  line-height: 100px;
+  border-radius: 96px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  background-color: #FFFFFF;
+  color: #666666;
+  padding: 15px 20px 15px 150px;
+}
+
+.POSSELineLink{
+  margin-left: 100px;
+}
+
+.POSSELineLink::before{
+  content: "\e901";
+}
+
+footer{
+  margin: 0 auto;
+}
+
+.FooterWeb{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  border-top: solid 1px #eee;
+  border-bottom: solid 1px #eee;
+  color: #666666;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.FooterLogo{
+  margin: 20px auto auto auto;
+}
+
+.FooterLineIcon{
+  margin-right: 10px;
+}
+
+.FooterLineIcon::before{
+  background: radial-gradient(#fff 60%, transparent 60%);
+  color: #00c300;
+  content: "\e900";
+  font-size: 40px;
+}
+
+.FooterLine{
+  background-color: #5FDF5B;
+  width: 288px;
+  height: 80px;
+  color: #FFFFFF;
+  text-align: center;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  margin: 20px;
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  border-radius: 16px;
+  padding: 22px;
+  display: flex;
+}
+
+.FooterLineLink{
+  margin: auto 0 auto 40px;
+}
+
+.FooterLineLink::before{
+  content: "\e901";
+  font-size: 20px;
+}
+
+.FooterSite{
+  margin: 24px;
+}
+
+.FooterSNS{
+  display: flex;
+  flex-direction: row;
+  margin: 12px auto 40px auto;
+}
+
+.FooterCopyright{
+  text-align: center;
+  color: #666666;
+  margin: 24px;
+  font-weight: 400;
+  font-size: 10px;
+}
