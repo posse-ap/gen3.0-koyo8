@@ -118,21 +118,94 @@ main{
   padding-top: 15px;
 }
 
-.Q1QTitle{
+.Q1Q,.Q2Q,.Q3Q,.Q4Q,.Q5Q,.Q6Q{
+  margin: 100px 228px 0 228px;
+}
+
+.Q1QTitle,.Q2QTitle,.Q3QTitle,.Q4QTitle,.Q5QTitle,.Q6QTitle{
   font-weight: 700;
   font-size: 36px;
   line-height: 150%;
   color: #fff;
   background-color: #0071BC;
   border-radius: 8px;
+  width: 85px;
+  height: 65px;
+  text-align: center;
+
 }
 
-.Q1QBody{
+.Q1QBody,.Q2QBody,.Q3QBody,.Q4QBody,.Q5QBody,.Q6QBody{
   font-weight: 700;
-font-size: 36px;
-line-height: 150%;
-text-align: justify;
-color: #333333;
+  font-size: 36px;
+  line-height: 150%;
+  color: #333333;
+}
+
+.Q1A,.Q2A,.Q3A,.Q4A,.Q5A,.Q6A{
+  padding-top: 50px;
+}
+
+.Q1ATitle,.Q2ATitle,.Q3ATitle,.Q4ATitle,.Q5ATitle,.Q6ATitle{
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 150%;
+  color: #FFFFFF;
+  background-color: #E34E70;
+  border-radius: 8px;
+  width: 58px;
+  height: 65px;
+  text-align: center;
+}
+
+.Q1Qimg,.Q2Qimg,.Q3Qimg,.Q4Qimg,.Q5Qimg,.Q6Qimg{
+  width: 70%;
+  margin: 20px 150px;
+}
+
+.Q1A,.Q2A,.Q3A,.Q4A,.Q5A,.Q6A{
+  margin: 0 228px 0 228px;
+}
+
+.Q1AChoice,.Q2AChoice,.Q3AChoice,.Q4AChoice,.Q5AChoice,.Q6AChoice{
+  display: flex;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 180%;
+  color: #333333;
+  justify-content: space-between;
+}
+
+.Q1A-1,.Q1A-2,.Q1A-3,.Q2A-1,.Q2A-2,.Q2A-3,.Q3A-1,.Q3A-2,.Q3A-3,.Q4A-1,.Q4A-2,.Q4A-3,.Q5A-1,.Q5A-2,.Q5A-3,.Q6A-1,.Q6A-2,.Q6A-3{
+  border: 5px solid #EEEEEE;
+  border-radius: 8px;
+  padding: 24px;
+  margin: 14px 0;
+  cursor: pointer;
+}
+
+.Q1A-1Deco,.Q1A-2Deco,.Q1A-3Deco,.Q2A-1Deco,.Q2A-2Deco,.Q2A-3Deco,.Q4A-1Deco,.Q4A-2Deco,.Q4A-3Deco,.Q5A-1Deco,.Q5A-2Deco,.Q5A-3Deco,.Q6A-1Deco,.Q6A-2Deco,.Q6A-3Deco{
+  margin-left: 170px;
+}
+
+.Q3A-1Deco,.Q3A-2Deco,.Q3A-3Deco{
+  margin-left: 80px;
+}
+
+
+.Q1A-1Deco::after,.Q1A-2Deco::after,.Q1A-3Deco::after,.Q2A-1Deco::after,.Q2A-2Deco::after,.Q2A-3Deco::after,.Q3A-1Deco::after,.Q3A-2Deco::after,.Q3A-3Deco::after,.Q4A-1Deco::after,.Q4A-2Deco::after,.Q4A-3Deco::after,.Q5A-1Deco::after,.Q5A-2Deco::after,.Q5A-3Deco::after,.Q6A-1Deco::after,.Q6A-2Deco::after,.Q6A-3Deco::after{
+  content: "\e903";
+  color: #333333;
+}
+
+.Q1AEvidence,.Q4AEvidence,.Q6AEvidence{
+  background-color: #F6F6F6;
+  border-radius: 8px;
+  padding: 24px;
+}
+
+.Q1AEvidenceDeco::before,.Q4AEvidenceDeco::before,.Q6AEvidenceDeco::before{
+  content: "\e902";
 }
 
 .POSSELine{
