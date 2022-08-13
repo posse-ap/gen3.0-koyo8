@@ -36,11 +36,7 @@
   }
 
   const setTitle = (target, isCorrect) => {
-    if(target.innerText = isCorrect) {
-      return '正解！';
-    } else {
-      return '不正解...';
-    }
+    target.innerText = isCorrect ? '正解！' : '不正解...';
   }
 
   const setClassName = (target, isCorrect) => {
@@ -53,5 +49,20 @@
     const answerBox = quiz.querySelector('.js-answerBox');
     const answerTitle = quiz.querySelector('.js-answerTitle');
     const answerText = quiz.querySelector('.js-answerText');
+
+    answers.forEach(answer => {
+      answer.addEventListener('click', () => {
+        answer.classList.add('is-selected');
+        const selectedAnswer = Number(answer.getAttribute('data-answer'));
+
+        setDisabled(answers);
+
+        const isCorrect = CorrectAnswers[selectedQuiz].index === selectedAnswer;
+
+        answerText.innerText = CorrectAnswers[selectedQuiz].value;
+        setTitle(answerTitle, isCorrect);
+        setClassName(answerBox, isCorrect)
+      })
+    })
   })
 }
