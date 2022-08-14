@@ -118,11 +118,11 @@ main{
   padding-top: 15px;
 }
 
-.Q1Q,.Q2Q,.Q3Q,.Q4Q,.Q5Q,.Q6Q{
+.QProblem{
   margin: 100px 228px 0 228px;
 }
 
-.Q1QTitle,.Q2QTitle,.Q3QTitle,.Q4QTitle,.Q5QTitle,.Q6QTitle{
+.QProblemTitle{
   font-weight: 700;
   font-size: 36px;
   line-height: 150%;
@@ -135,18 +135,19 @@ main{
 
 }
 
-.Q1QBody,.Q2QBody,.Q3QBody,.Q4QBody,.Q5QBody,.Q6QBody{
+.QProblemBody{
   font-weight: 700;
   font-size: 36px;
   line-height: 150%;
   color: #333333;
 }
 
-.Q1A,.Q2A,.Q3A,.Q4A,.Q5A,.Q6A{
+.QAnswer{
   padding-top: 50px;
+  margin: 0 228px 0 228px;
 }
 
-.Q1ATitle,.Q2ATitle,.Q3ATitle,.Q4ATitle,.Q5ATitle,.Q6ATitle{
+.QAnswerTitle{
   font-weight: 700;
   font-size: 36px;
   line-height: 150%;
@@ -158,16 +159,12 @@ main{
   text-align: center;
 }
 
-.Q1Qimg,.Q2Qimg,.Q3Qimg,.Q4Qimg,.Q5Qimg,.Q6Qimg{
+.QProblem img{
   width: 70%;
   margin: 20px 150px;
 }
 
-.Q1A,.Q2A,.Q3A,.Q4A,.Q5A,.Q6A{
-  margin: 0 228px 0 228px;
-}
-
-.Q1AChoice,.Q2AChoice,.Q3AChoice,.Q4AChoice,.Q5AChoice,.Q6AChoice{
+.QAnswerBody{
   display: flex;
   font-weight: 700;
   font-size: 18px;
@@ -176,36 +173,37 @@ main{
   justify-content: space-between;
 }
 
-.Q1A-1,.Q1A-2,.Q1A-3,.Q2A-1,.Q2A-2,.Q2A-3,.Q3A-1,.Q3A-2,.Q3A-3,.Q4A-1,.Q4A-2,.Q4A-3,.Q5A-1,.Q5A-2,.Q5A-3,.Q6A-1,.Q6A-2,.Q6A-3{
+.QAnswerChoice{
+  display: flex;
+}
+
+.QAnswerButton{
   border: 5px solid #EEEEEE;
   border-radius: 8px;
   padding: 24px;
   margin: 14px 0;
   cursor: pointer;
+  width: 330px;
 }
 
-.Q1A-1Deco,.Q1A-2Deco,.Q1A-3Deco,.Q2A-1Deco,.Q2A-2Deco,.Q2A-3Deco,.Q4A-1Deco,.Q4A-2Deco,.Q4A-3Deco,.Q5A-1Deco,.Q5A-2Deco,.Q5A-3Deco,.Q6A-1Deco,.Q6A-2Deco,.Q6A-3Deco{
-  margin-left: 170px;
+.QAnswerButtonDeco{
+  margin: auto 0;
+  transform: translateX(-40px);
 }
 
-.Q3A-1Deco,.Q3A-2Deco,.Q3A-3Deco{
-  margin-left: 80px;
-}
-
-
-.Q1A-1Deco::after,.Q1A-2Deco::after,.Q1A-3Deco::after,.Q2A-1Deco::after,.Q2A-2Deco::after,.Q2A-3Deco::after,.Q3A-1Deco::after,.Q3A-2Deco::after,.Q3A-3Deco::after,.Q4A-1Deco::after,.Q4A-2Deco::after,.Q4A-3Deco::after,.Q5A-1Deco::after,.Q5A-2Deco::after,.Q5A-3Deco::after,.Q6A-1Deco::after,.Q6A-2Deco::after,.Q6A-3Deco::after{
+.QAnswerButtonDeco::after{
   content: "\e903";
   color: #333333;
 }
 
-.Q1AEvidence,.Q4AEvidence,.Q6AEvidence{
+.QAnswerEvidence{
   background-color: #F6F6F6;
   border-radius: 8px;
   padding: 24px;
   margin: 16px 0;
 }
 
-.Q1AEvidenceDeco::before,.Q4AEvidenceDeco::before,.Q6AEvidenceDeco::before{
+.QAnswerEvidenceDeco::before{
   content: "\e902";
 }
 
@@ -385,6 +383,7 @@ footer{
 
 .is-selected{
   border: 5px solid #0071BC;
+  background-color: #EFF2F5;
 }
 
 .is-correctBox{
@@ -393,7 +392,7 @@ footer{
 }
 
 .is-incorrectBox{
-  background: #EFF2F5;
+  background-color: #EFF2F5;
   border-radius: 8px;
 }
 
