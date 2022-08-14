@@ -202,6 +202,7 @@ main{
   background-color: #F6F6F6;
   border-radius: 8px;
   padding: 24px;
+  margin: 16px 0;
 }
 
 .Q1AEvidenceDeco::before,.Q4AEvidenceDeco::before,.Q6AEvidenceDeco::before{
@@ -363,4 +364,68 @@ footer{
   margin: 24px;
   font-weight: 400;
   font-size: 10px;
+}
+
+/* 正解不正解の表示のところ */
+.is-correctTitle{
+  color: #E34E70;
+}
+
+.is-incorrectTitle{
+  color: #0071BC;
+}
+
+.is-correctTitle,.is-incorrectTitle{
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 150%;
+  letter-spacing: 0.05em;
+  padding: 20px 0 0 40px;
+}
+
+.is-selected{
+  border: 5px solid #0071BC;
+}
+
+.is-correctBox{
+  background: #FFF2F5;
+  border-radius: 8px;
+}
+
+.is-incorrectBox{
+  background: #EFF2F5;
+  border-radius: 8px;
+}
+
+.Correct{
+  display: none;
+}
+
+.is-correctBox,.is-incorrectBox{
+  height: 143px;
+  display: block;
+}
+
+.CorrectContent{
+  margin-top: 15px;
+}
+
+.CorrectContentLabel{
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 180%;
+  color: #333333;
+  padding: 0 20px 0 40px;
+  /* display: none; */
+}
+
+.is-correctBox.is-incorrectBox{
+  height: 143px;
+}
+
+.js-answerText{
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 180%;
+  color: #333333;
 }

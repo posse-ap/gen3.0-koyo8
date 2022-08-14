@@ -27,6 +27,7 @@
       value: '約5倍',
     }
   ];
+
   const allQuiz = document.querySelectorAll('.js-quiz');
 
   const setDisabled = answers => {
@@ -39,8 +40,12 @@
     target.innerText = isCorrect ? '正解！' : '不正解...';
   }
 
-  const setClassName = (target, isCorrect) => {
-    target.classList.add(isCorrect ? 'is-correct' : 'is-incorrect');
+  const setClassNameTitle = (target, isCorrect) => {
+    target.classList.add(isCorrect ? 'is-correctTitle' : 'is-incorrectTitle');
+  }
+
+  const setClassNameBox = (target, isCorrect) => {
+    target.classList.add(isCorrect ? 'is-correctBox' : 'is-incorrectBox')
   }
 
   allQuiz.forEach(quiz => {
@@ -61,7 +66,8 @@
 
         answerText.innerText = CorrectAnswers[selectedQuiz].value;
         setTitle(answerTitle, isCorrect);
-        setClassName(answerBox, isCorrect)
+        setClassNameTitle(answerTitle, isCorrect)
+        setClassNameBox(answerBox, isCorrect)
       })
     })
   })
