@@ -64,6 +64,18 @@
     }
   }
 
+  const quizContainer = document.getElementById('js-quizContainer')
+
+  const createQuizHtml = (quizItem, questionNumber) => {
+    const answerHtml = quizItem.answers.map((answer, answerIndex) => `<li class="QAnswerChoice">
+      <button class="QAnswerButton js-answer" data-answer="${answerIndex}">${answer} </button>
+      <i class="QAnswerButtonDeco"></i>
+  </li>`
+  ).join('');
+
+  const evidenceHtml = quizItem.evidence ? `<p class="QAnswerEvidence"><i class="QAnswerEvidenceDeco"></i>${quizItem.evidence}</p>` : ``;
+  }
+
   const allQuiz = document.querySelectorAll('.js-quiz');
 
   const setDisabled = answers => {
