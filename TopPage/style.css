@@ -4,7 +4,7 @@
   font-family: "posse-icon";
   font-style: normal;
   font-weight: normal;
-  src: url("./assets-ph1-website-main/fonts/posse-icon.ttf?bbqgr3") format("truetype"), url("./assets-ph1-website-main/fonts/posse-icon.woff?bbqgr3") format("woff"), url("./assets-ph1-website-main/fonts/posse-icon.svg?bbqgr3#posse-icon") format("svg");
+  src: url("../assets-ph1-website-main/fonts/posse-icon.ttf?bbqgr3") format("truetype"), url("../assets-ph1-website-main/fonts/posse-icon.woff?bbqgr3") format("woff"), url("../assets-ph1-website-main/fonts/posse-icon.svg?bbqgr3#posse-icon") format("svg");
 }
 i, .icomoon-liga {
   /* speak: never; */
@@ -200,7 +200,7 @@ color: #0071BC;
 }
 
 .POSSELine{
-  background: url(./assets-ph1-website-main/img/bg-line.jpg) center center/cover;
+  background: url(../assets-ph1-website-main/img/bg-line.jpg) center center/cover;
   border-radius: 56px;
   overflow: hidden;
   padding: 68px;
