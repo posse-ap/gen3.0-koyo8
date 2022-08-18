@@ -132,16 +132,21 @@
     answers.forEach(answer => {
       answer.addEventListener('click', () => {
         answer.classList.add('is-selected');
-        const selectedAnswer = Number(answer.getAttribute('data-answer'));
+        const selectedAnswerNumber = Number(answer.getAttribute('data-answer'));
 
         setDisabled(answers);
 
-        const isCorrect = CorrectAnswers[selectedQuiz].index === selectedAnswer;
+        // const isCorrect = CorrectAnswers[selectedQuiz].index === selectedAnswer;
+        const correctNumber = AllQuestion[selectedQuiz].correctNumber;const isCorrect = correctNumber === selectedAnswerNumber;
 
-        answerText.innerText = CorrectAnswers[selectedQuiz].value;
+        // answerText.innerText = CorrectAnswers[selectedQuiz].value;
+        // setTitle(answerTitle, isCorrect);
+        // setClassNameTitle(answerTitle, isCorrect);
+        // setClassNameBox(answerBox, isCorrect);
+        answerText.innerText = AllQuestion[selectedQuiz].answers[correctNumber];
         setTitle(answerTitle, isCorrect);
-        setClassNameTitle(answerTitle, isCorrect)
-        setClassNameBox(answerBox, isCorrect)
+        setClassNameTitle(answerTitle, isCorrect);
+        setClassNameBox(answerBox, isCorrect);
       })
     })
   })
