@@ -28,12 +28,12 @@
   //   }
   // ];
 
-  const AllQuestion{
+  const AllQuestion = [
     {
       question: '日本のIT人材が2030年には最大どれくらい不足すると言われているでしょうか？',
       answers: ['約28万人', '約79万人', '約183万人'],
       correctNumber: 1,
-      evidence: '経済産業省 2019年3月 － IT 人材需給に関する調査'
+      evidence: '経済産業省 2019年3月 － IT 人材需給に関する調査',
     },
     {
       question: '既存業界のビジネスと、先進的なテクノロジーを結びつけて生まれた、新しいビジネスのことをなんと言うでしょう？',
@@ -62,7 +62,7 @@
       correctNumber: 1,
       evidence: 'Accenture Technology Vision 2021'
     }
-  }
+  ]
 
   const quizContainer = document.getElementById('js-quizContainer')
 
@@ -74,7 +74,33 @@
   ).join('');
 
   const evidenceHtml = quizItem.evidence ? `<p class="QAnswerEvidence"><i class="QAnswerEvidenceDeco"></i>${quizItem.evidence}</p>` : ``;
+
+  return `<section class="QBox js-quiz" data-quiz="${questionNumber}">
+  <div class="QProblem">
+    <div class="QProblemTitle">Q${questionNumber + 1}</div>
+    <p class="QProblemBody">${quizItem.question}</p>
+    <img class="QProblemimg" src="../assets-ph1-website-main/img/quiz/img-quiz0${questionNumber + 1}.png" alt="クイズimg">
+  </div>
+  <div class="QAnswer">
+    <div class="QAnswerTitle">A</div>
+    <ul class="QAnswerBody">
+      ${answerHtml}
+    </ul>
+    <div class="Correct js-answerBox">
+      <p class="CorrectTitle js-answerTitle"></p>
+      <p class="CorrectContent">
+        <span class="CorrectContentLabel">A</span>
+        <span class="js-answerText"></span>
+      </p>
+    </div>
+  ${evidenceHtml}
+  </section>`
+
   }
+
+  quizContainer.innerHTML = AllQuestion.map((quizItem, index) => {
+    return createQuizHtml(quizItem, index)
+  }).join('')
 
   const allQuiz = document.querySelectorAll('.js-quiz');
 
