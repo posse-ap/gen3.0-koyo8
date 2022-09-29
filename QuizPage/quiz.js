@@ -43,7 +43,7 @@
     {
       question: 'IoTとは何の略でしょう？',
       answers: ['Internet of Things', 'Integrate into Technology', 'Information on Tool'],
-      correctNumber: 1,
+      correctNumber: 0,
     },
     {
       question: 'イギリスのコンピューター科学者であるギャビン・ウッド氏が提唱した、ブロックチェーン技術を活用した「次世代分散型インターネット」のことをなんと言うでしょう？',
@@ -98,7 +98,18 @@
 
   }
 
-  quizContainer.innerHTML = AllQuestion.map((quizItem, index) => {
+  const shuffle = arrays => {
+    const array = arrays.slice();
+    for (let i = array.length - 1; i >= 0; i--) {
+      const randomIndex = Math.floor(Math.random() * (i + 1));
+      [array[i], array[randomIndex]] = [array[randomIndex], array[i]];
+    }
+    return array
+  }
+
+  const quizArray = shuffle(AllQuestion)
+
+  quizContainer.innerHTML = quizArray.map((quizItem, index) => {
     return createQuizHtml(quizItem, index)
   }).join('')
 
@@ -137,13 +148,13 @@
         setDisabled(answers);
 
         // const isCorrect = CorrectAnswers[selectedQuiz].index === selectedAnswer;
-        const correctNumber = AllQuestion[selectedQuiz].correctNumber;const isCorrect = correctNumber === selectedAnswerNumber;
+        const correctNumber = quizArray[selectedQuiz].correctNumber;const isCorrect = correctNumber === selectedAnswerNumber;
 
         // answerText.innerText = CorrectAnswers[selectedQuiz].value;
         // setTitle(answerTitle, isCorrect);
         // setClassNameTitle(answerTitle, isCorrect);
         // setClassNameBox(answerBox, isCorrect);
-        answerText.innerText = AllQuestion[selectedQuiz].answers[correctNumber];
+        answerText.innerText = quizArray[selectedQuiz].answers[correctNumber];
         setTitle(answerTitle, isCorrect);
         setClassNameTitle(answerTitle, isCorrect);
         setClassNameBox(answerBox, isCorrect);

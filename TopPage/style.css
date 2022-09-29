@@ -96,6 +96,14 @@ header{
   margin: 10px;
 }
 
+.hamburger{
+  width: 34px;
+  height: 20px;
+  border-top: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  display: none;
+}
+
 main{
   padding-top: 60px;
 }
@@ -127,26 +135,37 @@ main{
   border-radius: 24px;
 } */
 
+.Hero{
+  position: relative;
+}
+
 .HeroText{
-  /* position: relative; */
-  transform: translate(200px,-500px);
+  position: absolute;
+  /* transform: translate(200px,-500px); */
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 45%;
+  bottom: 0;
   z-index: 2;
   background-color: #EFF2F5;
   width: 500px;
+  height: 281px;
   border-radius: 24px;
   padding: 48px;
 }
 
 .HeroTextTop{
   color: #0071BC;
-  margin: 20px 0;
   font-weight: 700;
+  transform: translateY(-10px);
 }
 
 .HeroTextMain{
   font-weight: 700;
   font-size: 60px;
   line-height: 80px;
+  transform: translateY(10px);
 }
 
 .HeroScroll{
@@ -165,6 +184,11 @@ main{
   width: 8px;
 }
 
+.About{
+  margin: 50px 0 20px 0;
+  position: relative;
+}
+
 .AboutTitle{
   text-align: center;
 }
@@ -177,26 +201,37 @@ main{
 
 .AboutsubTitle{
   font-weight: 700;
-font-size: 14px;
-line-height: 25px;
-color: #0071BC;
+  font-size: 14px;
+  line-height: 25px;
+  color: #0071BC;
 }
 
 .AboutBody{
   display: flex;
-  margin: 24px 250px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 24px auto;
 }
 
 .AboutBodyimg{
-  width: 472px;
+  /* width: 472px; */
   border-radius: 24px;
   margin: 24px;
+  max-width: 50%;
+  height: auto;
 }
 
 .AboutBodyText{
   width: 472px;
   margin: auto 24px;
   color: #333333;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 25px;
+  letter-spacing: 0em;
 }
 
 .POSSELine{
@@ -354,4 +389,10 @@ footer{
   margin: 24px;
   font-weight: 400;
   font-size: 10px;
+}
+
+@media (max-width = 400px) {
+  .hamburger{
+    display: block;
+  }
 }
