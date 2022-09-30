@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./reset1.css">
   <link rel="stylesheet" href="./style.css">
+  <script src="./script.js" defer></script>
 </head>
 <body>
   <header>
@@ -26,9 +27,18 @@
         <a href="https://www.instagram.com/posse_programming/" target="_blank"><i class="HeaderInstagram"></i></a>
       </div>
     </div>
-    <div class="hamburger"></div>
+    <div class="HamburgerBar">
+      <div class="HamburgerBarTrue active"></div>
+      <div class="HamburgerBarFalse"></div>
+    </div>
   </header>
   <main>
+    <div class="Hamburger">
+      <ul class="HamburgerText">
+        <a href="#About"> <li class="HamburgerTextAbout">POSSEとは</li> </a>
+        <a href="../QuizPage/index.html"> <li class="HamburgerTextQuiz">クイズ</li> </a>
+      </ul>
+    </div>
     <article>
       <section class="Hero">
         <div class="MainVisual"><img src="../assets-ph1-website-main/img/img-hero.jpg" alt="メインビジュアル"></div>
@@ -38,7 +48,7 @@
           <h3 class="HeroTextMain">自分史上最高<br> を仲間と。</h3>
         </div>
       </section>
-      <section class="About">
+      <section id="About" class="About">
         <div class="AboutTitle">
           <h2 class="AboutmainTitle">POSSEとは</h2>
           <h3 class="AboutsubTitle">about POSSE</h3>
