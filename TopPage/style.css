@@ -317,18 +317,30 @@ main{
 
 } */
 
+.LineTytle{
+  display: inline-flex;
+}
+
 .POSSELineTytle{
   font-size: 36px;
   font-weight: 700;
   line-height: 180%;
+  text-align: center;
+}
+
+.LineIcon{
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .LineIcon:before{
   background: radial-gradient(#fff 60%, transparent 60%);
   color: #00c300;
   content: "\e900";
-  font-size: 110%;
-  vertical-align: baseline;
+  font-size: 36px;
   margin: 10px;
 }
 
@@ -337,7 +349,7 @@ main{
   height: 3%;
 } */
 
-.POSSELineText,.POSSELineTytle,.POSSELineAddText{
+.POSSELineText,.POSSELineTytle,.POSSELineAddText,.LineIcon{
   position: relative;
 }
 
@@ -349,18 +361,19 @@ main{
   line-height: 200%;
 }
 
-.POSSELineAddText{
-  line-height: 100px;
+.POSSELineAdd{
+  /* line-height: 100px; */
   border-radius: 96px;
   font-weight: 700;
   letter-spacing: 0.1em;
   background-color: #FFFFFF;
   color: #666666;
-  padding: 15px 20px 15px 150px;
+  /* padding: 15px 20px 15px 150px; */
+  margin: 15px auto 0 auto;
 }
 
 .POSSELineLink{
-  margin-left: 100px;
+  /* margin-left: 100px; */
 }
 
 .POSSELineLink::before{
@@ -442,7 +455,7 @@ footer{
   font-size: 10px;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 750px) {
 /* .HamburgerBarTrue{
   display: block;
 }
@@ -479,6 +492,89 @@ footer{
 
 .HeaderRight{
   display: none;
+}
+
+.MainVisual img{
+  max-width: 100%;
+  border-radius: 0;
+}
+
+.HeroScroll{
+  display: none;
+}
+
+.HeroText{
+  top: 105%;
+  right: 0;
+  width: 360px;
+  height: 110px;
+  padding: 24px;
+}
+
+.HeroTextTop{
+  font-size: 12px;
+  line-height: 22px;
+  transform: translateY(0);
+}
+
+.HeroTextMain{
+  font-size: 28px;
+  line-height: 42px;
+  transform: translateY(0);
+  margin-top: 10px;
+}
+
+.About{
+  margin-top: 100px;
+}
+
+.AboutmainTitle{
+  font-size: 24px;
+  line-height: 43px;
+}
+
+.AboutsubTitle{
+  font-size: 14px;
+  line-height: 25px;
+}
+
+.AboutBody{
+  display: block;
+}
+
+.AboutBodyimg{
+  max-width: 95%;
+  margin: 0 10px;
+}
+
+.AboutBodyText{
+  width: 95%;
+  font-size: 14px;
+  line-height: 25px;
+  margin: 10px;
+}
+
+.LineTytle{
+  display: block;
+}
+
+.LineIcon:before{
+  font-size: 40px;
+}
+
+.POSSELineTytle{
+  font-size: 24px;
+line-height: 43px;
+padding-top: 10px;
+}
+
+.POSSELineText{
+  font-size: 14px;
+line-height: 22px;
+}
+
+.POSSELineAdd{
+  width: 80%;
 }
 
 }
