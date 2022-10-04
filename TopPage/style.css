@@ -70,7 +70,7 @@ header{
   margin-top: 20px;
 }
 
-.HeaderTwitter,.FooterTwitter{
+.HeaderTwitter,.FooterTwitter,.HamburgerTwitter{
   width: 25px;
   height: 20px;
   box-sizing: border-box;
@@ -80,17 +80,17 @@ header{
   margin: 10px;
 }
 
-.HeaderTwitter::before,.FooterTwitter::before{
+.HeaderTwitter::before,.FooterTwitter::before,.HamburgerTwitter::before{
   content: "\ea96";
   color: gray;
 }
 
-.HeaderInstagram::before,.FooterInstagram::before{
+.HeaderInstagram::before,.FooterInstagram::before,.HamburgerInstagram::before{
   content: "\ea92";
   color: gray;
 }
 
-.HeaderInstagram,.FooterInstagram{
+.HeaderInstagram,.FooterInstagram,.HamburgerInstagram{
   width: 24px;
   height: 24px;
   box-sizing: border-box;
@@ -340,7 +340,7 @@ main{
   background: radial-gradient(#fff 60%, transparent 60%);
   color: #00c300;
   content: "\e900";
-  font-size: 36px;
+  font-size: 40px;
   margin: 10px;
 }
 
@@ -452,11 +452,15 @@ footer{
   font-size: 20px;
 }
 
+.FooterLineTextSP{
+  display: none;
+}
+
 .FooterSite{
   margin: 24px;
 }
 
-.FooterSNS{
+.FooterSNS,.HamburgerSNS{
   display: flex;
   flex-direction: row;
   margin: 12px auto 40px auto;
@@ -503,6 +507,60 @@ footer{
 
 .HamburgerTextAbout{
   margin-bottom: 24px;
+}
+
+.HamburgerLineIcon{
+  margin: 0px 15px 0 0;
+  display: inline-block;
+}
+
+.HamburgerLineIcon::before{
+  background: radial-gradient(#fff 60%, transparent 60%);
+  color: #00c300;
+  content: "\e900";
+  font-size: 30px;
+}
+
+.HamburgerLine{
+  padding-left: 15px;
+  margin: 250px 0 0 0;
+}
+
+.HamburgerLineText{
+  display: inline-block;
+  background-color: #5FDF5B;
+  width: 90%;
+  height: 60px;
+  color: #FFFFFF;
+  text-align: center;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  /* position: fixed; */
+  bottom: 160px;
+  border-radius: 16px;
+}
+
+.HamburgerLineLink{
+  margin: 10px;
+  display: inline-block;
+}
+
+.HamburgerLineLink::before{
+  content: "\e901";
+  font-size: 20px;
+}
+
+.HamburgerSiteText{
+  text-align: center;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 25px;
+  color: #666666;
+}
+
+.HamburgerSNS{
+  justify-content: center;
 }
 
 .HeaderRight{
@@ -573,10 +631,6 @@ footer{
   display: block;
 }
 
-.LineIcon:before{
-  font-size: 40px;
-}
-
 .POSSELineTytle{
   font-size: 24px;
 line-height: 43px;
@@ -592,4 +646,70 @@ line-height: 22px;
   width: 80%;
 }
 
+.POSSELine{
+  margin: 220px 10px 100px 10px;
+  width: 95%;
+  height: 372px;
+  padding: 30px 24px;
+}
+
+.POSSELineTytle{
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 43px;
+  letter-spacing: 0em;
+}
+
+.POSSELineText{
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0.1em;
+}
+
+.POSSELineAdd{
+  margin-top: 34px;
+  width: 295px;
+}
+
+.POSSELineAddText{
+  transform: translate(-5%, 25%);
+}
+
+.POSSELineAddTextBody{
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.POSSELineLink{
+  transform: translateX(90px);
+}
+
+.FooterLine{
+  width: 100%;
+  border-radius: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+}
+
+.FooterLineText{
+  display: none;
+}
+
+.FooterLineTextSP{
+  display: block;
+  margin: auto;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.FooterLineIcon{
+  margin: auto;
+}
+
+.FooterLineLink{
+  margin: auto;
+}
 }
