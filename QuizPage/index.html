@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ITクイズ|POSSE 初めてのWeb制作(develop)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./reset1.css">
+  <link rel="stylesheet" href="./style.css">
+  <script src="../QuizPage/quiz.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="HeaderLogo">
+      <img src="../assets-ph1-website-main/img/logo.svg" alt="">
+    </div>
+    <div class="HeaderRight">
+      <div class="HeaderTop">
+        <a class="HeaderTopPage" href="../TopPage/index.html">トップページ</a>
+        <a class="HeaderQuiz" href="../QuizPage/index.html">クイズ</a>
+      </div>
+      <div class="HeaderSNS">
+        <a href="https://twitter.com/posse_program" target=”_blank”><i class="HeaderTwitter"></i></a>
+        <a href="https://www.instagram.com/posse_programming/" target="_blank"><i class="HeaderInstagram"></i></a>
+      </div>
+    </div>
+    <div class="HamburgerBar">
+      <div class="HamburgerBarTrue active"></div>
+      <div class="HamburgerBarFalse"></div>
+    </div>
+  </header>
+  <main>
+    <div class="Hamburger">
+      <ul class="HamburgerText">
+        <a href="../TopPage/index.html#About"> <li class="HamburgerTextAbout">POSSEとは</li> </a>
+        <a href="#quiz"> <li class="HamburgerTextQuiz">クイズ</li> </a>
+      </ul>
+      <a class="HamburgerLine" href="https://line.me/R/ti/p/@651htnqp?from=page" target="_blank">
+        <p class="HamburgerLineText"><i class="HamburgerLineIcon"></i> POSSE公式LINE追加 <i class="HamburgerLineLink"></i></p>
+      </a>
+      <a class="HamburgerSite" href="https://posse-ap.com/" target="_blank">
+        <p class="HamburgerSiteText">POSSE公式サイト</p>
+      </a>
+      <div class="HamburgerSNS">
+        <a href="https://twitter.com/posse_program" target=”_blank”><i class="HamburgerTwitter"></i></a>
+        <a href="https://www.instagram.com/posse_programming/" target="_blank"><i class="HamburgerInstagram"></i></a>
+      </div>
+    </div>
+    <div class="QuizTitle">
+      <div id="quiz" class="QuizTitleBodySubText">POSSE課題</div>
+      <h1 class="QuizTitleBodyText">ITクイズ</h1>
+    </div>
+    <!-- <section class="QBox js-quiz" data-quiz="0">
+      <div class="QProblem">
+        <div class="QProblemTitle">Q1</div>
+        <p class="QProblemBody">日本のIT人材が2030年には最大どれくらい不足すると言われているでしょうか？</p>
+        <img class="QProblemimg" src="../assets-ph1-website-main/img/quiz/img-quiz01.png" alt="クイズその１">
+      </div>
+      <div class="QAnswer">
+        <div class="QAnswerTitle">A</div>
+        <ul class="QAnswerBody">
+          <li class="QAnswerChoice">
+            <button class="QAnswerButton js-answer" data-answer="0">約28万人 </button>
+            <i class="QAnswerButtonDeco"></i>
+          </li>
+          <li class="QAnswerChoice">
+            <button class="QAnswerButton js-answer" data-answer="1">約79万人 </button>
+            <i class="QAnswerButtonDeco"></i>
+          </li>
+          <li class="QAnswerChoice">
+            <button class="QAnswerButton js-answer" data-answer="2">約183万人 </button>
+            <i class="QAnswerButtonDeco"></i>
+          </li>
+        </ul>
+        <div class="Correct js-answerBox">
+          <p class="CorrectTitle js-answerTitle"></p>
+          <p class="CorrectContent">
+            <span class="CorrectContentLabel">A</span>
+            <span class="js-answerText"></span>
+          </p>
+        </div>
+        <p class="QAnswerEvidence"><i class="QAnswerEvidenceDeco"></i> 経済産業省 2019年3月 － IT 人材需給に関する調査</p>
+      </div>
+    </section>
+    <section class="QBox js-quiz" data-quiz="1">
+      <div class="QProblem">
+        <div class="QProblemTitle">Q2</div>
+        <p class="QProblemBody">既存業界のビジネスと、先進的なテクノロジーを結びつけて生まれた、新しいビジネスのことをなんと言うでしょう？</p>
+        <img class="QProblemimg" src="../assets-ph1-website-main/img/quiz/img-quiz02.png" alt="クイズその２">
+      </div>
+      <div class="QAnswer">
+        <div class="QAnswerTitle">A</div>
+        <ul class="QAnswerBody">
+          <li class="QAnswerChoice">
+            <button class="QAnswerButton js-answer" data-answer="0">INTECH </button>
+            <i class="QAnswerButtonDeco"></i>
+          </li>
+          <li class="QAnswerChoice">
+            <button class="QAnswerButton js-answer" data-answer="1">BIZZTECH </button>
+            <i class="QAnswerButtonDeco"></i>
+          </li>
+          <li class="QAnswerChoice">
+            <button class="QAnswerButton js-answer" data-answer="2">X-TECH </button>
+            <i class="QAnswerButtonDeco"></i>
+          </li>
+        </ul>
+        <div class="Correct js-answerBox">
+          <p class="CorrectTitle js-answerTitle"></p>
+          <p class="CorrectContent">
+            <span class="CorrectContentLabel">A</span>
+            <span class="js-answerText"></span>
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="QBox js-quiz" data-quiz="2">
+      <div class="QProblem">
+        <div class="QProblemTitle">Q3</div>
+        <p class="QProblemBody">IoTとは何の略でしょう？</p>
+        <img class="QProblemimg" src="../assets-ph1-website-main/img/quiz/img-quiz03.png" alt="クイズその３">
+      </div>
+      <div class="QAnswer">
+        <div class="QAnswerTitle">A</div>
+        <ul class="QAnswerBody">
+          <li class="QAnswerChoice">
+            <button class="QAnswerButton js-answer" data-answer="0">Internet of Things </button>
+            <i class="QAnswerButtonDeco"></i>
+          </li>
+          <li class="QAnswerChoice">
+            <button class="QAnswerButton js-answer" data-answer="1">Integrate into Technology </button>
+            <i class="QAnswerButtonDeco"></i>
+          </li>
+          <li class="QAnswerChoice">
+            <button class="QAnswerButton js-answer" data-answer="2">Information  on Tool </button>
+            <i class="QAnswerButtonDeco"></i>
+          </li>
+        </ul>
+        <div class="Correct js-answerBox">
+          <p class="CorrectTitle js-answerTitle"></p>
+          <p class="CorrectContent">
+            <span class="CorrectContentLabel">A</span>
+            <span class="js-answerText"></span>
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="QBox js-quiz" data-quiz="3">
+      <div class="QProblem">
+        <div class="QProblemTitle">Q4</div>
+        <p class="QProblemBody">日本が目指すサイバー空間とフィジカル空間を高度に融合させたシステムによって開かれる未来社会のことをなんと言うでしょうか？</p>
+        <img class="QProblemimg" src="../assets-ph1-website-main/img/quiz/img-quiz04.png" alt="クイズその４">
+      </div>
+      <div class="QAnswer">
+        <div class="QAnswerTitle">A</div>
+        <ul class="QAnswerBody">
+          <li class="QAnswerChoice">
+            <button class="QAnswerButton js-answer" data-answer="0">Society 5.0 </button>
+            <i class="QAnswerButtonDeco"></i>
+          </li>
+          <li class="QAnswerChoice">
+            <button class="QAnswerButton js-answer" data-answer="1">CyPhy </button>
+            <i class="QAnswerButtonDeco"></i>
+          </li>
+          <li class="QAnswerChoice">
+            <button class="QAnswerButton js-answer" data-answer="2">SDGs </button>
+            <i class="QAnswerButtonDeco"></i>
+          </li>
+        </ul>
+        <div class="Correct js-answerBox">
+          <p class="CorrectTitle js-answerTitle"></p>
+          <p class="CorrectContent">
+            <span class="CorrectContentLabel">A</span>
+            <span class="js-answerText"></span>
+          </p>
+        </div>
+        <p class="QAnswerEvidence"><i class="QAnswerEvidenceDeco"></i> Society5.0 - 科学技術政策 - 内閣府</p>
+      </div>
+    </section>
+    <section class="QBox js-quiz" data-quiz="4">
+      <div class="QProblem">
+        <div class="QProblemTitle">Q5</div>
+        <p class="QProblemBody">イギリスのコンピューター科学者であるギャビン・ウッド氏が提唱した、ブロックチェーン技術を活用した「次世代分散型インターネット」のことをなんと言うでしょう？</p>
+        <img class="QProblemimg" src="../assets-ph1-website-main/img/quiz/img-quiz05.png" alt="クイズその５">
+      </div>
+      <div class="QAnswer">
+        <div class="QAnswerTitle">A</div>
+        <ul class="QAnswerBody">
+          <li class="QAnswerChoice">
+            <button class="QAnswerButton js-answer" data-answer="0">Web3.0 </button>
+            <i class="QAnswerButtonDeco"></i>
+          </li>
+          <li class="QAnswerChoice">
+            <button class="QAnswerButton js-answer" data-answer="1">NFT </button>
+            <i class="QAnswerButtonDeco"></i>
+          </li>
+          <li class="QAnswerChoice">
+            <button class="QAnswerButton js-answer" data-answer="2">メタバース </button>
+            <i class="QAnswerButtonDeco"></i>
+          </li>
+        </ul>
+        <div class="Correct js-answerBox">
+          <p class="CorrectTitle js-answerTitle"></p>
+          <p class="CorrectContent">
+            <span class="CorrectContentLabel">A</span>
+            <span class="js-answerText"></span>
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="QBox js-quiz" data-quiz="5">
+      <div class="QProblem">
+        <div class="QProblemTitle">Q6</div>
+        <p class="QProblemBody">先進テクノロジー活用企業と出遅れた企業の収益性の差はどれくらいあると言われているでしょうか？</p>
+        <img class="QProblemBodyimg" src="../assets-ph1-website-main/img/quiz/img-quiz06.png" alt="クイズその６">
+      </div>
+      <div class="QAnswer">
+        <div class="QAnswerTitle">A</div>
+        <ul class="QAnswerBody">
+          <li class="QAnswerChoice">
+            <button class="QAnswerButton js-answer" data-answer="0">約2倍 </button>
+            <i class="QAnswerButtonDeco"></i>
+          </li>
+          <li class="QAnswerChoice">
+            <button class="QAnswerButton js-answer" data-answer="1">約5倍 </button>
+            <i class="QAnswerButtonDeco"></i>
+          </li>
+          <li class="QAnswerChoice">
+            <button class="QAnswerButton js-answer" data-answer="2">約11倍 </button>
+            <i class="QAnswerButtonDeco"></i>
+          </li>
+        </ul>
+        <div class="Correct js-answerBox">
+          <p class="CorrectTitle js-answerTitle"></p>
+          <p class="CorrectContent">
+            <span class="CorrectContentLabel">A</span>
+            <span class="js-answerText"></span>
+          </p>
+        </div>
+        <p class="QAnswerEvidence"><i class="QAnswerEvidenceDeco"></i> Accenture Technology Vision 2021 </p>
+      </div>
+    </section> -->
+    
+    <div class="QuizContainer" id="js-quizContainer"></div>
+
+    <section>
+      <div class="POSSELine">
+        <h2 class="POSSELineTytle">
+          <i class="LineIcon"></i>POSSE 公式LINE
+        </h2>
+        <h3 class="POSSELineText">
+          公式LINEにてご質問を随時受け付けております。<br>詳細やPOSSE最新情報につきましては、公式LINEにてお知らせ致しますので<br>下記ボタンより友達追加をお願いします！<br>
+        </h3>
+        <div class="POSSELineAdd">
+          <a class="POSSELineAddText" href="https://line.me/R/ti/p/@651htnqp?from=page" target="_blank">
+            LINE追加<i class="POSSELineLink"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="FooterWeb">
+      <img class="FooterLogo" src="../assets-ph1-website-main/img/logo.svg" alt="">
+      <a class="FooterSite" href="https://posse-ap.com/" target=”_blank”>POSSE公式サイト</a>
+      <div class="FooterSNS">
+        <a href="https://twitter.com/posse_program" target=”_blank”><i class="FooterTwitter"></i></a>
+        <a href="https://www.instagram.com/posse_programming/" target="_blank"><i class="FooterInstagram"></i></a>
+      </div>
+    </div>
+    <a href="https://line.me/R/ti/p/@651htnqp?from=page" target="_blank">
+      <div class="FooterLine">
+        <i class="FooterLineIcon"></i>
+        <p class="FooterLineText">POSSE公式LINEで<br> 最新情報をGET！</p>
+        <p class="FooterLineTextSP">公式LINEで最新情報をGET！</p>
+        <i class="FooterLineLink"></i>
+      </div>
+    </a>
+    <div class="FooterCopyright">
+      <p lang="en">&copy;2022 POSSE</p>
+    </div>
+  </footer>
+</body>
+</html>
