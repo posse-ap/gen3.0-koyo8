@@ -66,7 +66,7 @@ header{
   margin-top: 20px;
 }
 
-.HeaderTwitter,.FooterTwitter{
+.HeaderTwitter,.FooterTwitter,.HamburgerTwitter{
   width: 25px;
   height: 20px;
   box-sizing: border-box;
@@ -76,17 +76,17 @@ header{
   margin: 10px;
 }
 
-.HeaderTwitter::before,.FooterTwitter::before{
+.HeaderTwitter::before,.FooterTwitter::before,.HamburgerTwitter::before{
   content: "\ea96";
   color: gray;
 }
 
-.HeaderInstagram::before,.FooterInstagram::before{
+.HeaderInstagram::before,.FooterInstagram::before,.HamburgerInstagram::before{
   content: "\ea92";
   color: gray;
 }
 
-.HeaderInstagram,.FooterInstagram{
+.HeaderInstagram,.FooterInstagram,.HamburgerInstagram{
   width: 24px;
   height: 24px;
   box-sizing: border-box;
@@ -94,6 +94,45 @@ header{
   border-radius: 50%;
   padding: 18px;
   margin: 10px;
+}
+
+.Hamburger{
+  display: none;
+}
+
+.HamburgerBarTrue{
+  width: 34px;
+  height: 20px;
+  border-top: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  margin: 20px 24px auto 0;
+  display: none;
+}
+
+.HamburgerBarFalse{
+  width: 34px;
+  height: 20px;
+  margin: 20px 24px auto 0;
+  transform: translateX(45%);
+  display: none;
+}
+
+.HamburgerBarFalse::after, .HamburgerBarFalse::before{
+  content: "";
+  position: absolute;
+  /* top: 50%;
+  left: 50%; */
+  width: 1px;
+  height: 30px;
+  background: #333333;
+}
+
+.HamburgerBarFalse::before{
+  transform: rotate(45deg);
+}
+
+.HamburgerBarFalse::after{
+  transform: rotate(-45deg);
 }
 
 main{
@@ -350,7 +389,7 @@ footer{
   margin: 24px;
 }
 
-.FooterSNS{
+.FooterSNS,.HamburgerSNS{
   display: flex;
   flex-direction: row;
   margin: 12px auto 40px auto;
@@ -427,4 +466,125 @@ footer{
   font-size: 18px;
   line-height: 180%;
   color: #333333;
+}
+
+@media (max-width: 750px){
+  .active{
+    display: block;
+  }
+
+  .HeaderRight{
+    display: none;
+  }
+
+  .Hamburger{
+    background-color: #FFFFFF;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 4;
+  }
+  
+  .HamburgerText{
+    text-align: center;
+    margin-top: 70px;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 36px;
+    letter-spacing: 0.05em;
+    color: #333333;
+  }
+  
+  .HamburgerTextAbout{
+    margin-bottom: 24px;
+  }
+  
+  .HamburgerLineIcon{
+    margin: 0px 15px 0 30px;
+    display: inline-block;
+    transform: translateY(15%);
+  }
+  
+  .HamburgerLineIcon::before{
+    background: radial-gradient(#fff 60%, transparent 60%);
+    color: #00c300;
+    content: "\e900";
+    font-size: 30px;
+  }
+  
+  .HamburgerLine{
+    display: flex;
+    padding-left: 15px;
+    margin: 200px 0 0 15px;
+    background-color: #5FDF5B;
+    width: 343px;
+    height: 60px;
+    color: #FFFFFF;
+    text-align: center;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    /* position: fixed; */
+    bottom: 160px;
+    border-radius: 30px;
+  }
+  
+  .HamburgerLineText{
+    display: inline-block;
+    margin: 8px;
+  }
+  
+  .HamburgerLineLink{
+    margin: 10px;
+    display: inline-block;
+    transform: translateX(40px);
+  }
+  
+  .HamburgerLineLink::before{
+    content: "\e901";
+    font-size: 20px;
+  }
+  
+  .HamburgerSiteText{
+    text-align: center;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 25px;
+    color: #666666;
+    margin: 24px;
+  }
+  
+  .HamburgerSNS{
+    justify-content: center;
+    margin-top: 40px;
+  }
+
+  .QuizTitle{
+    max-width: 100%;
+    width: 375px;
+    height: 159px;
+    padding: auto 0;
+  }
+
+  .QuizTitleBodySubText{
+    font-size: 14px;
+    line-height: 25px;
+    transform: translateX(-170%);
+  }
+
+  .QuizTitleBodyText{
+    font-size: 28px;
+    line-height: 42px;
+    padding: 0;
+    transform: translateX(-170%);
+  }
+
+  .QProblem{
+    margin: 48px 16px;
+  }
+
+  .QProblemBody{
+    font-size: 18px;
+    line-height: 32px
+  }
 }

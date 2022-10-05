@@ -487,13 +487,13 @@ footer{
   display: block;
 }
 
-  .Hamburger{
-    background-color: #FFFFFF;
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    z-index: 4;
-  }
+.Hamburger{
+  background-color: #FFFFFF;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 4;
+}
 
 .HamburgerText{
   text-align: center;
