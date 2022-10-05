@@ -510,8 +510,9 @@ footer{
 }
 
 .HamburgerLineIcon{
-  margin: 0px 15px 0 0;
+  margin: 0px 15px 0 30px;
   display: inline-block;
+  transform: translateY(15%);
 }
 
 .HamburgerLineIcon::before{
@@ -522,14 +523,11 @@ footer{
 }
 
 .HamburgerLine{
+  display: flex;
   padding-left: 15px;
-  margin: 250px 0 0 0;
-}
-
-.HamburgerLineText{
-  display: inline-block;
+  margin: 200px 0 0 15px;
   background-color: #5FDF5B;
-  width: 90%;
+  width: 343px;
   height: 60px;
   color: #FFFFFF;
   text-align: center;
@@ -538,12 +536,18 @@ footer{
   letter-spacing: 0.1em;
   /* position: fixed; */
   bottom: 160px;
-  border-radius: 16px;
+  border-radius: 30px;
+}
+
+.HamburgerLineText{
+  display: inline-block;
+  margin: 8px;
 }
 
 .HamburgerLineLink{
   margin: 10px;
   display: inline-block;
+  transform: translateX(40px);
 }
 
 .HamburgerLineLink::before{
@@ -557,10 +561,12 @@ footer{
   font-size: 14px;
   line-height: 25px;
   color: #666666;
+  margin: 24px;
 }
 
 .HamburgerSNS{
   justify-content: center;
+  margin-top: 40px;
 }
 
 .HeaderRight{
@@ -680,6 +686,7 @@ line-height: 22px;
   font-weight: 700;
   font-size: 14px;
   line-height: 22px;
+  transform: translateX(25%);
 }
 
 .POSSELineLink{
