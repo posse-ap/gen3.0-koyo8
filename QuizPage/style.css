@@ -198,7 +198,7 @@ main{
   text-align: center;
 }
 
-.QProblem img{
+.QProblemimg{
   width: 70%;
   margin: 20px 150px;
 }
@@ -278,18 +278,30 @@ main{
 
 } */
 
+.LineTytle{
+  display: inline-flex;
+}
+
 .POSSELineTytle{
   font-size: 36px;
   font-weight: 700;
   line-height: 180%;
+  text-align: center;
+}
+
+.LineIcon{
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .LineIcon:before{
   background: radial-gradient(#fff 60%, transparent 60%);
   color: #00c300;
   content: "\e900";
-  font-size: 110%;
-  vertical-align: baseline;
+  font-size: 40px;
   margin: 10px;
 }
 
@@ -298,7 +310,7 @@ main{
   height: 3%;
 } */
 
-.POSSELineText,.POSSELineTytle,.POSSELineAddText{
+.POSSELineText,.POSSELineTytle,.POSSELineAddText,.LineIcon{
   position: relative;
 }
 
@@ -310,18 +322,35 @@ main{
   line-height: 200%;
 }
 
-.POSSELineAddText{
-  line-height: 100px;
+.POSSELineAdd{
+  /* line-height: 100px; */
   border-radius: 96px;
   font-weight: 700;
   letter-spacing: 0.1em;
   background-color: #FFFFFF;
   color: #666666;
-  padding: 15px 20px 15px 150px;
+  /* padding: 15px 20px 15px 150px; */
+  margin: 15px auto 0 auto;
+  position: relative;
+  width: 320px;
+  height: 50px;
+  padding-top: 15px;
+}
+
+
+.POSSELineAddText{
+  width: 320px;
+  height: 50px;
+  transform: translateY(25%);
+}
+
+.POSSELineAddTextBody{
+  display: inline-block;
 }
 
 .POSSELineLink{
-  margin-left: 100px;
+  display: inline-block;
+  transform: translateX(100px);
 }
 
 .POSSELineLink::before{
@@ -387,6 +416,10 @@ footer{
 
 .FooterSite{
   margin: 24px;
+}
+
+.FooterLineTextSP{
+  display: none;
 }
 
 .FooterSNS,.HamburgerSNS{
@@ -580,11 +613,126 @@ footer{
   }
 
   .QProblem{
-    margin: 48px 16px;
+    margin: 48px 16px 0 16px;
   }
 
   .QProblemBody{
     font-size: 18px;
     line-height: 32px
+  }
+
+  .QProblemimg{
+    margin: 24px 16px;
+    width: 85%;
+  }
+
+  .QAnswer{
+    margin:16px;
+  }
+
+  .QAnswerBody{
+    display: block;
+  }
+
+  .QAnswerButton{
+    margin: 8px 0;
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .QAnswerEvidenceDeco{
+    margin-right: 5px;
+  }
+
+  .QAnswerEvidence{
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .LineTytle{
+    display: block;
+  }
+  
+  .POSSELineTytle{
+    font-size: 24px;
+  line-height: 43px;
+  padding-top: 10px;
+  }
+  
+  .POSSELineText{
+    font-size: 14px;
+  line-height: 22px;
+  }
+  
+  .POSSELineAdd{
+    width: 80%;
+  }
+  
+  .POSSELine{
+    margin: 220px 10px 100px 10px;
+    width: 95%;
+    height: 372px;
+    padding: 30px 24px;
+  }
+  
+  .POSSELineTytle{
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 43px;
+    letter-spacing: 0em;
+  }
+  
+  .POSSELineText{
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0.1em;
+  }
+  
+  .POSSELineAdd{
+    margin-top: 34px;
+    width: 295px;
+  }
+  
+  .POSSELineAddText{
+    transform: translate(-5%, 25%);
+  }
+  
+  .POSSELineAddTextBody{
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 22px;
+    transform: translateX(25%);
+  }
+  
+  .POSSELineLink{
+    transform: translateX(90px);
+  }
+
+  .FooterLine{
+    width: 100%;
+    border-radius: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+  }
+  
+  .FooterLineText{
+    display: none;
+  }
+  
+  .FooterLineTextSP{
+    display: block;
+    margin: auto;
+    font-size: 14px;
+    line-height: 18px;
+  }
+  
+  .FooterLineIcon{
+    margin: auto;
+  }
+  
+  .FooterLineLink{
+    margin: auto;
   }
 }
