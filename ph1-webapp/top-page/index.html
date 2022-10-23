@@ -13,7 +13,7 @@
 <body>
   <header>
     <span class="header-left">
-      <div class="header-logo"><img src="../assets-ph1-website-main/img/logo.svg" alt=""></div>
+      <div class="header-logo"><img src="../../assets-ph1-website-main/img/logo.svg" alt=""></div>
       <div class="header-week">4th week</div>
     </span>
     <span>
@@ -38,13 +38,13 @@
         <div class="time-sub">hour</div>
       </div>
       <div class="graph-bar">
-        <img class="graph-bar-img" src="../assets-ph1-website-main/img/img-hero.jpg" alt="仮">
+        <img class="graph-bar-img" src="../../assets-ph1-website-main/img/img-hero.jpg" alt="仮">
       </div>
     </div>
     <div class="box-right">
       <div class="graph-lang graph-right">
-        <div class="graph-lang-title">学習言語</div>
-        <img class="graph-lang-img" src="../assets-ph1-website-main/img/img-hero.jpg" alt="仮">
+        <div class="graph-lang-title graph-title">学習言語</div>
+        <img class="graph-lang-img" src="../../assets-ph1-website-main/img/img-hero.jpg" alt="仮">
         <div class="graph-lang-index">
           <ul>
             <li>JavaScript</li>
@@ -59,8 +59,8 @@
         </div>
       </div>
       <div class="graph-content graph-right">
-        <div class="graph-content-title">学習コンテンツ</div>
-        <img class="graph-content-img" src="../assets-ph1-website-main/img/img-hero.jpg" alt="仮">
+        <div class="graph-content-title graph-title">学習コンテンツ</div>
+        <img class="graph-content-img" src="../../assets-ph1-website-main/img/img-hero.jpg" alt="仮">
         <div class="graph-content-index">
           <ul>
             <li>ドットインストール</li>
@@ -70,9 +70,87 @@
         </div>
       </div>
     </div>
+
+    <!-- ここからモーダル -->
+    <div class="modal">
+      <div class="close-button"></div>
+      <section class="modal-date">
+        <label for="date" class="modal-date-title modal-title">学習日</label>
+        <input type="text" class="modal-date-textbox modal-textbox">
+      </section>
+      <section class="modal-content">
+        <h1 class="modal-content-title modal-title">学習コンテンツ(複数選択可)</h1>
+        <div>
+          <input type="checkbox" class="modal-checkbox">
+          <label for="select-1" class="modal-checkbox-text">N予備校</label>
+        </div>
+        <div>
+          <input type="checkbox" class="modal-checkbox">
+          <label for="select-2" class="modal-checkbox-text">ドットインストール</label>
+        </div>
+        <div>
+          <input type="checkbox" class="modal-checkbox">
+          <label for="select-3" class="modal-checkbox-text">POSSE課題</label>
+        </div>
+      </section>
+      <section class="modal-lang">
+        <h1 class="modal-lang-title modal-title">学習言語(複数選択可)</h1>
+        <div>
+          <input type="checkbox" class="modal-checkbox">
+          <label for="select-1" class="modal-checkbox-text">HTML</label>
+        </div>
+        <div>
+          <input type="checkbox" class="modal-checkbox">
+          <label for="select-2" class="modal-checkbox-text">CSS</label>
+        </div>
+        <div>
+          <input type="checkbox" class="modal-checkbox">
+          <label for="select-3" class="modal-checkbox-text">JavaScript</label>
+        </div>
+        <div>
+          <input type="checkbox" class="modal-checkbox">
+          <label for="select-4" class="modal-checkbox-text">PHP</label>
+        </div>
+        <div>
+          <input type="checkbox" class="modal-checkbox">
+          <label for="select-5" class="modal-checkbox-text">Laravel</label>
+        </div>
+        <div>
+          <input type="checkbox" class="modal-checkbox">
+          <label for="select-6" class="modal-checkbox-text">SQL</label>
+        </div>
+        <div>
+          <input type="checkbox" class="modal-checkbox">
+          <label for="select-7" class="modal-checkbox-text">SHELL</label>
+        </div>
+        <div>
+          <input type="checkbox" class="modal-checkbox">
+          <label for="select-8" class="modal-checkbox-text">情報システム基礎(その他)</label>
+        </div>
+      </section>
+      <section class="modal-time">
+        <label for="time" class="modal-time-title modal-title">学習時間</label>
+        <input type="text" class="modal-time-textbox modal-textbox">
+      </section>
+      <section class="modal-twitter-comment">
+        <label for="twitter" class="modal-twitter-comment-title modal-title">Twitter用コメント</label>
+        <textarea rows="5" cols="33" class="modal-twitter-comment-textbox modal-textbox"></textarea>
+      </section>
+      <section class="modal-twitter-share">
+        <input type="checkbox" class="modal-checkbox">
+        <label for="twitter" class="modal-checkbox-text">Twitterにシェアする</label>
+      </section>
+      <div>
+        <button class="header-button">記録・投稿</button>
+      </div>
+    </div>
+    <!-- モーダルおわり -->
+
   </main>
   <footer>
+    <div class="footer-date-before"></div>
     <div class="footer-date">2020年10月</div>
+    <div class="footer-date-after"></div>
   </footer>
 </body>
 
