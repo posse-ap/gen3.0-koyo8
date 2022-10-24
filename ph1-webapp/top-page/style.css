@@ -152,7 +152,7 @@ footer{
 
 /* ここからモーダル */
 
-body:before{
+.active:before{
   content: '';
   background-color: rgba(0,0,0,.5);
   z-index: 2;
@@ -164,4 +164,100 @@ body:before{
 .modal{
   z-index: 3;
   background-color: white;
+  position: absolute;
+  width: 900px;
+  padding: 56px;
+  transform: translate(35%,5%);
+  display: flex;
+  border-radius: 40px;
+}
+
+.modal-close-button{
+  display: block;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: #F5F5F8;
+  border-radius: 50%;
+  padding: 20px;
+  transform: translate(1950%,-90%);
+}
+
+.modal-close-button::before, .modal-close-button::after { /* 共通設定 */
+  content: "";
+  position: absolute;
+  width: 2px; /* 棒の幅（太さ） */
+  height: 25px; /* 棒の高さ */
+  background:	#666666;
+}
+
+.modal-close-button::before {
+  transform: translate(-50%,-50%) rotate(45deg);
+}
+
+.modal-close-button::after {
+  transform: translate(-50%,-50%) rotate(-45deg);
+}
+
+.modal-left{
+  width: 374px;
+  margin-right: 20px;
+}
+
+.modal-title{
+  font-size: 14px;
+  font-weight: 600;
+  margin: 20px 0 10px 0;
+}
+
+.modal-textbox{
+  display: block;
+  background-color: #F5F5F8;
+  padding: 14px;
+  width: 100%;
+  border-radius: 10px;
+  margin: 5px 0 35px 0;
+}
+
+.modal-checkbox-text{
+  display: inline-block;
+  background-color: #F5F5F8;
+  padding: 10px;
+  margin: 3px;
+  border-radius: 20px;
+}
+
+.modal-right{
+  width: 374px;
+  margin-left: 20px;
+}
+
+.modal-twitter-comment-textbox{
+  margin-bottom: 5px;
+}
+
+.modal-twitter-share-checkbox-text{
+  background-color: white;
+}
+
+.modal-button{
+  background: linear-gradient(to right,	#0F71BC,	#3BCDFD);
+  width: 80%;
+  height: 40px;
+  text-align: center;
+  border-radius: 50px;
+  color: white;
+  box-shadow: 0 6px 10px 0 rgba(24, 131, 201, .4);
+}
+
+.modal-close{
+  display: none;
+}
+
+.modal-open{
+  display: flex;
+}
+
+.modal-off{
+  display: none;
 }
