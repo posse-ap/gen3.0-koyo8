@@ -1,56 +1,57 @@
 'use strict';
 
+{
 const AllQuiz = [
   {
     id: 1,
-    quesstion : '日本のIT人材が2030年には最大どれくらい不足すると言われているでしょうか？',
+    question : '日本のIT人材が2030年には最大どれくらい不足すると言われているでしょうか？',
     answers : ['約28万人', '約79万人', '約138万人'],
     correct : 1,
       evidence: '経済産業省 2019年3月 － IT 人材需給に関する調査',
   },
   {
     id: 2,
-    quesstion : '既存業界のビジネスと、先進的なテクノロジーを結びつけて生まれた、新しいビジネスのことをなんと言うでしょう？',
+    question : '既存業界のビジネスと、先進的なテクノロジーを結びつけて生まれた、新しいビジネスのことをなんと言うでしょう？',
     answers : ['INTECH', 'BIZZTECH', 'X-TECH'],
     correct : 2,
   },
   {
     id: 3,
-    quesstion : 'IoTとは何の略でしょう？',
+    question : 'IoTとは何の略でしょう？',
     answers : ['Internet of Things', 'Integrate into Technology', 'Information on Tool'],
     correct : 0,
   },
   {
     id: 4,
-    quesstion : '日本が目指すサイバー空間とフィジカル空間を高度に融合させたシステムによって開かれる未来社会のことをなんと言うでしょうか？',
+    question : '日本が目指すサイバー空間とフィジカル空間を高度に融合させたシステムによって開かれる未来社会のことをなんと言うでしょうか？',
     answers : ['Society 5.0', 'CyPhy', 'SDGs'],
     correct : 0,
     evidence : 'Society5.0 - 科学技術政策 - 内閣府',
   },
   {
     id: 5,
-    quesstion : 'イギリスのコンピューター科学者であるギャビン・ウッド氏が提唱した、ブロックチェーン技術を活用した「次世代分散型インターネット」のことをなんと言うでしょう？',
+    question : 'イギリスのコンピューター科学者であるギャビン・ウッド氏が提唱した、ブロックチェーン技術を活用した「次世代分散型インターネット」のことをなんと言うでしょう？',
     answers : ['Web3.0', 'NFT', 'メタバース'],
     correct : 0,
   },
   {
     id: 6,
-    quesstion : '先進テクノロジー活用企業と出遅れた企業の収益性の差はどれくらいあると言われているでしょうか？',
+    question : '先進テクノロジー活用企業と出遅れた企業の収益性の差はどれくらいあると言われているでしょうか？',
     answers : ['約2倍', '約5倍', '約11倍'],
     correct : 1,
     evidence : 'Accenture Technology Vision 2021',
   }
 ]
 
-const quizContainer = document.getElementById('.js-quizContainer');
+const quizContainer = document.getElementById('js-quizContainer');
 
 const quizHTML = (quizItem, questionNumber) => {
-  const answerHTML = quizItem.answers.map((answerText, answerIndex) => {
+  const answerHTML = quizItem.answers.map((answer, answerIndex) => 
     `<li class="QAnswerChoice">
-    <button class="QAnswerButton js-answer" data-answer="${answerIndex}">${answerText} </button>
+    <button class="QAnswerButton js-answer" data-answer="${answerIndex}">${answer} </button>
     <i class="QAnswerButtonDeco"></i>
   </li>`
-  }).join('');
+  ).join('');
 
   const evidenceHTML = quizItem.evidence ? `<p class="QAnswerEvidence"><i class="QAnswerEvidenceDeco"></i> ${quizItem.evidence}</p>` : ``;
 
@@ -82,12 +83,76 @@ const shuffle = arrays => {
   for (let i =array.length -1; i >=0 ; i--) {
     const randomNumber = Math.floor(Math.random() * (i + 1));
     [array[i], array[randomNumber]] = [array[randomNumber], array[i]];
-    return array;
   }
+  return array;
 }
 
-const quiz = shuffle(AllQuiz);
+const quizArray = shuffle(AllQuiz);
 
-quizContainer.innerHTML = quiz.map((quizItem, index) => {
+quizContainer.innerHTML = quizArray.map((quizItem, index) => {
   return quizHTML(quizItem, index);
 }).join('')
+
+const Quiz = document.querySelectorAll('.js-quiz');
+
+const setDisabled = answers => {
+  answers.forEach(answer => {
+    answer.disabled = true;
+  })
+}
+
+const setTitle = (target, isCorrect) => {
+  target.innerText = isCorrect ? '正解！' : '不正解...';
+}
+
+const setClassNameTitle = (target, isCorrect) => {
+  target.classList.add(isCorrect ? 'is-correctTitle' : 'is-incorrectTitle');
+}
+
+const setClassNameBox = (target, isCorrect) => {
+  target.classList.add(isCorrect ? 'is-correctBox' : 'is-incorrectBox')
+}
+
+Quiz.forEach(quiz => {
+  const answers = quiz.querySelectorAll('.js-answer');
+  const selectedQuiz = Number(quiz.getAttribute('data-quiz'));
+  const answerBox = quiz.querySelector('.js-answerBox');
+  const answerTitle = quiz.querySelector('.js-answerTitle');
+  const answerText = quiz.querySelector('.js-answerText');
+
+  answers.forEach(answer => {
+    answer.addEventListener('click', () => {
+      answer.classList.add('is-selected');
+      const selectedAnswerNumber = Number(answer.getAttribute('data-answer'));
+
+      setDisabled(answers);
+
+      const correctNumber = quizArray[selectedQuiz].correct; const isCorrect = correctNumber === selectedAnswerNumber;
+
+      answerText.innerText = quizArray[selectedQuiz].answers[correctNumber];
+      setTitle(answerTitle, isCorrect);
+      setClassNameTitle(answerTitle, isCorrect);
+      setClassNameBox(answerBox, isCorrect);
+    })
+  })
+})
+
+const hamburgerBar = document.querySelector('.HamburgerBar');
+const hamburgerBarTrue = document.querySelector('.HamburgerBarTrue');
+const hamburgerBarFalse = document.querySelector('.HamburgerBarFalse');
+const hamburger = document.querySelector('.Hamburger');
+
+hamburgerBar.addEventListener('click', () => {
+  hamburgerBar.classList.toggle('active');
+  hamburgerBarTrue.classList.toggle('active');
+  hamburgerBarFalse.classList.toggle('active');
+  hamburger.classList.toggle('active');
+});
+
+hamburger.addEventListener('click', () => {
+  hamburgerBar.classList.toggle('active');
+  hamburgerBarTrue.classList.toggle('active');
+  hamburgerBarFalse.classList.toggle('active');
+  hamburger.classList.toggle('active');
+})
+}

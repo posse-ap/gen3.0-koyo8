@@ -77,11 +77,11 @@
       <button class="QAnswerButton js-answer" data-answer="${answerIndex}">${answer} </button>
       <i class="QAnswerButtonDeco"></i>
   </li>`
-  ).join('');
+    ).join('');
 
-  const evidenceHtml = quizItem.evidence ? `<p class="QAnswerEvidence"><i class="QAnswerEvidenceDeco"></i>${quizItem.evidence}</p>` : ``;
+    const evidenceHtml = quizItem.evidence ? `<p class="QAnswerEvidence"><i class="QAnswerEvidenceDeco"></i>${quizItem.evidence}</p>` : ``;
 
-  return `<section class="QBox js-quiz" data-quiz="${questionNumber}">
+    return `<section class="QBox js-quiz" data-quiz="${questionNumber}">
   <div class="QProblem">
     <div class="QProblemTitle">Q${questionNumber + 1}</div>
     <p class="QProblemBody">${quizItem.question}</p>
@@ -154,7 +154,7 @@
         setDisabled(answers);
 
         // const isCorrect = CorrectAnswers[selectedQuiz].index === selectedAnswer;
-        const correctNumber = quizArray[selectedQuiz].correctNumber;const isCorrect = correctNumber === selectedAnswerNumber;
+        const correctNumber = quizArray[selectedQuiz].correctNumber; const isCorrect = correctNumber === selectedAnswerNumber;
 
         // answerText.innerText = CorrectAnswers[selectedQuiz].value;
         // setTitle(answerTitle, isCorrect);
@@ -169,21 +169,21 @@
   })
 
   const hamburgerBar = document.querySelector('.HamburgerBar');
-const hamburgerBarTrue = document.querySelector('.HamburgerBarTrue');
-const hamburgerBarFalse = document.querySelector('.HamburgerBarFalse');
-const hamburger = document.querySelector('.Hamburger');
+  const hamburgerBarTrue = document.querySelector('.HamburgerBarTrue');
+  const hamburgerBarFalse = document.querySelector('.HamburgerBarFalse');
+  const hamburger = document.querySelector('.Hamburger');
 
-hamburgerBar.addEventListener('click', () => {
-  hamburgerBar.classList.toggle('active');
-  hamburgerBarTrue.classList.toggle('active');
-  hamburgerBarFalse.classList.toggle('active');
-  hamburger.classList.toggle('active');
-}); 
+  hamburgerBar.addEventListener('click', () => {
+    hamburgerBar.classList.toggle('active');
+    hamburgerBarTrue.classList.toggle('active');
+    hamburgerBarFalse.classList.toggle('active');
+    hamburger.classList.toggle('active');
+  });
 
-hamburger.addEventListener('click' , () => {
-  hamburgerBar.classList.toggle('active');
-  hamburgerBarTrue.classList.toggle('active');
-  hamburgerBarFalse.classList.toggle('active');
-  hamburger.classList.toggle('active');
-})
+  hamburger.addEventListener('click', () => {
+    hamburgerBar.classList.toggle('active');
+    hamburgerBarTrue.classList.toggle('active');
+    hamburgerBarFalse.classList.toggle('active');
+    hamburger.classList.toggle('active');
+  })
 }
