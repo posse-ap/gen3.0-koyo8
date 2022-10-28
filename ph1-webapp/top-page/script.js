@@ -33,5 +33,5 @@ inputButton.addEventListener('click' , () => {
   window.setTimeout(() => {
     modalLoad.classList.remove('modal-load-on');
     modalComplete.classList.add('modal-complete-on');
-}, 0); //実際は5000
+}, 3000); //実際は3000
 })

@@ -9,6 +9,65 @@
   <link rel="stylesheet" href="./reset1.css">
   <link rel="stylesheet" href="./style.css">
   <script src="./script.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1" defer></script>
+
+  <script>
+    'use strict';
+    window.onload = function () {
+      let contextBar = document.querySelector('#graph-bar').getContext('2d');
+      new Chart(contextBar, {
+        type: 'bar',
+        data: {
+          labels: ['', '2', '', '4', '', '6', '', '8', '', '10', '', '12', '', '14', '', '16', '', '18', '', '20', '', '22', '', '24', '', '26', '', '28', '', '30'],
+          datasets: [{
+            label: '',
+            data: [3, 4, 1, 3, 3, 4, 6, 7, 2, 4, 2, 5, 7, 8, 6, 4, 5, 1, 1, 2, 4, 3, 5, 2, 6, 8, 8, 3, 1, 4, 1],
+          }],
+        },
+        options: {
+          responsive: false
+        }
+        // scales: {
+        //   y: {
+        //     ticks: {
+        //       callback: function(tick) {
+        //         return tick.toString() + 'h';
+        //       }
+        //     }
+        //   }
+        // }
+      });
+
+      let contextLang = document.querySelector('#graph-lang').getContext('2d');
+      new Chart(contextLang, {
+        type: 'doughnut',
+        data: {
+          labels: ['JavaScript', 'CSS', 'PHP', 'HTML', 'Laravel', 'SQL', 'SHELL', '情報システム基礎(その他)'],
+          datasets: [{
+            data: [42, 18, 10, 9, 8, 5, 4, 2],
+          }]
+        },
+        options: {
+          responsive: false,
+        }
+      });
+
+      let contextContent = document.querySelector('#graph-content').getContext('2d');
+      new Chart(contextContent, {
+        type: 'doughnut',
+        data: {
+          labels: ['ドットインストール', 'N予備校', 'POSSE課題'],
+          datasets: [{
+            data: [42, 33, 25],
+          }]
+        },
+        options: {
+          responsive: false,
+        }
+      });
+    }
+  </script>
+
 </head>
 
 <body id="body">
@@ -39,15 +98,15 @@
         <div class="time-sub">hour</div>
       </div>
       <div class="graph-bar">
-        <img class="graph-bar-img" src="../../assets-ph1-website-main/img/quiz/img-quiz01.png" alt="仮">
+        <canvas id="graph-bar" class="graph-bar"></canvas>
       </div>
     </div>
     <div class="box-right">
       <div class="graph-lang graph-right">
         <div class="graph-lang-title graph-title">学習言語</div>
-        <img class="graph-lang-img" src="../../assets-ph1-website-main/img/quiz/img-quiz01.png" alt="仮">
+        <canvas id="graph-lang" class="graph-lang"></canvas>
         <div class="graph-lang-index">
-          <ul>
+          <!-- <ul>
             <li>JavaScript</li>
             <li>CSS</li>
             <li>PHP</li>
@@ -56,19 +115,19 @@
             <li>SQL</li>
             <li>SHELL</li>
             <li>情報システム基礎知識(その他)</li>
-          </ul>
+          </ul> -->
         </div>
       </div>
       <div class="graph-content graph-right">
         <div class="graph-content-title graph-title">学習コンテンツ</div>
-        <img class="graph-content-img" src="../../assets-ph1-website-main/img/quiz/img-quiz01.png" alt="仮">
+        <canvas id="graph-content" class="graph-content"></canvas>
         <div class="graph-content-index">
-          <ul>
+          <!-- <ul>
             <li>ドットインストール</li>
             <li>N予備校</li>
             <li>POSSE課題</li>
           </ul>
-        </div>
+        </div> -->
       </div>
     </div>
 
@@ -170,7 +229,7 @@
       <div class="modal-complete modal-off">
         <div class="modal-complete-check">
           <div class="modal-complete-check-text">AWESOME!</div>
-          <div class="modal-complete-check-body">          <i class="modal-complete-check-img"></i></div>
+          <div class="modal-complete-check-body"> <i class="modal-complete-check-img"></i></div>
           <div class="modal-complete-text">
             記録・投稿<br> 完了しました
           </div>
