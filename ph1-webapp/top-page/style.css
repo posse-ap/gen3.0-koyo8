@@ -248,6 +248,7 @@ footer{
   border-radius: 50px;
   color: white;
   box-shadow: 0 6px 10px 0 rgba(24, 131, 201, .4);
+  transform: translateX(-50%);
 }
 
 .modal-close{
