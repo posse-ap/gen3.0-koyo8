@@ -35,9 +35,11 @@ inputButton.addEventListener('click' , () => {
 
   modalBody.classList.add('modal-off');
   modalLoad.classList.add('modal-load-on');
+  closeButton.classList.add('modal-off');
   window.setTimeout(() => {
     modalLoad.classList.remove('modal-load-on');
     modalComplete.classList.add('modal-complete-on');
+    closeButton.classList.remove('modal-off');
 }, 3000); //実際は3000
 
 function openTwiter() {
