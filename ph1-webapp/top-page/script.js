@@ -8,6 +8,7 @@ const modal = document.querySelector('.modal');
 const modalBody = document.querySelector('.modal-body');
 const modalLoad = document.querySelector('.loader');
 const modalComplete = document.querySelector('.modal-complete');
+const twitterCheckbox = document.querySelector('#twitter-share');
 
 openButton.addEventListener('click' , () => {
   body.classList.add('active');
@@ -28,10 +29,20 @@ closeButton.addEventListener('click' , () => {
 })
 
 inputButton.addEventListener('click' , () => {
+  if (twitterCheckbox.checked) {
+    openTwiter();
+  };
+
   modalBody.classList.add('modal-off');
   modalLoad.classList.add('modal-load-on');
   window.setTimeout(() => {
     modalLoad.classList.remove('modal-load-on');
     modalComplete.classList.add('modal-complete-on');
 }, 3000); //実際は3000
+
+function openTwiter() {
+  const twitterCommentText = document.getElementById('modal-twitter-comment-textbox').value;
+  let twitterURL = "https://twitter.com/intent/tweet?text="+ twitterCommentText;
+  window.open(twitterURL, '_blank');
+}
 })
