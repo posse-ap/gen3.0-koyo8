@@ -170,6 +170,7 @@ footer{
   padding: 56px;
   display: flex;
   border-radius: 40px;
+  transform: translate(-50%, -100%);
 }
 
 .modal-close-button{
@@ -217,6 +218,10 @@ footer{
   width: 100%;
   border-radius: 10px;
   margin: 5px 0 35px 0;
+}
+
+.modal-checkbox-body{
+  display: inline-block;
 }
 
 .modal-checkbox-text{
@@ -356,4 +361,11 @@ footer{
   margin: 35px;
   line-height: 1.5rem;
   font-size: 20px;
+}
+
+/* グラフここから */
+#graph-lang{
+  position: relative;
+  width: 500px;
+  /* height: 300px; */
 }

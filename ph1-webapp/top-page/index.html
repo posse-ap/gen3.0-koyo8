@@ -9,10 +9,49 @@
   <link rel="stylesheet" href="./reset1.css">
   <link rel="stylesheet" href="./style.css">
   <script src="./script.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1" defer></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1" defer></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0-rc.1/dist/chartjs-plugin-datalabels.min.js" integrity="sha256-Oq8QGQ+hs3Sw1AeP0WhZB7nkjx6F1LxsX6dCAsyAiA4=" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels" defer></script>
 
   <script>
     'use strict';
+
+    // Define a plugin to provide data labels
+Chart.plugins.register({
+    afterDatasetsDraw: function (chart, easing) {
+        // To only draw at the end of animation, check for easing === 1
+        var ctx = chart.ctx;
+
+        chart.data.datasets.forEach(function (dataset, i) {
+            var meta = chart.getDatasetMeta(i);
+            if (!meta.hidden) {
+                meta.data.forEach(function (element, index) {
+                    // Draw the text in black, with the specified font
+                    ctx.fillStyle = 'rgb(0, 0, 0)';
+
+                    var fontSize = 16;
+                    var fontStyle = 'normal';
+                    var fontFamily = 'Helvetica Neue';
+                    ctx.font = Chart.helpers.fontString(fontSize, fontStyle, fontFamily);
+
+                    // Just naively convert to string for now
+                    var dataString = dataset.data[index].toString();
+
+                    // Make sure alignment settings are correct
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+
+                    var padding = 5;
+                    var position = element.tooltipPosition();
+                    ctx.fillText(dataString, position.x, position.y - (fontSize / 2) - padding);
+                });
+            }
+        });
+    }
+});
+
     window.onload = function () {
       let contextBar = document.querySelector('#graph-bar').getContext('2d');
       new Chart(contextBar, {
@@ -25,47 +64,95 @@
           }],
         },
         options: {
-          responsive: false
-        }
-        // scales: {
-        //   y: {
-        //     ticks: {
-        //       callback: function(tick) {
-        //         return tick.toString() + 'h';
-        //       }
-        //     }
-        //   }
-        // }
+          responsive: false,
+          animation: false,
+          scales: {
+            xAxes: [{
+              display: true,
+              stacked: false,
+              gridLines: {
+                display: false
+              }
+            }],
+            yAxes: [{
+              gridLines: {
+                display: false
+              },
+              ticks: {
+                min: 0,
+                callback: function (tick) {
+                  return tick.toString() + 'h';
+                }
+              }
+            }]
+          }
+        },
       });
 
-      let contextLang = document.querySelector('#graph-lang').getContext('2d');
-      new Chart(contextLang, {
-        type: 'doughnut',
-        data: {
-          labels: ['JavaScript', 'CSS', 'PHP', 'HTML', 'Laravel', 'SQL', 'SHELL', '情報システム基礎(その他)'],
-          datasets: [{
-            data: [42, 18, 10, 9, 8, 5, 4, 2],
-          }]
-        },
-        options: {
-          responsive: false,
-        }
-      });
+      Chart.plugins.register({
+        afterDatasetsDraw: function (chart, easing) {
+          // To only draw at the end of animation, check for easing === 1
+          var ctx = chart.ctx;
 
-      let contextContent = document.querySelector('#graph-content').getContext('2d');
-      new Chart(contextContent, {
-        type: 'doughnut',
-        data: {
-          labels: ['ドットインストール', 'N予備校', 'POSSE課題'],
-          datasets: [{
-            data: [42, 33, 25],
-          }]
-        },
-        options: {
-          responsive: false,
-        }
-      });
+          chart.data.datasets.forEach(function (dataset, i) {
+            var meta = chart.getDatasetMeta(i);
+            if (!meta.hidden) {
+                meta.data.forEach(function (element, index) {
+                    // Draw the text in black, with the specified font
+                    ctx.fillStyle = 'rgb(0, 0, 0)';
+
+                    var fontSize = 16;
+                    var fontStyle = 'normal';
+                    var fontFamily = 'Helvetica Neue';
+                    ctx.font = Chart.helpers.fontString(fontSize, fontStyle, fontFamily);
+
+                    // Just naively convert to string for now
+                    var dataString = dataset.data[index].toString();
+
+                    // Make sure alignment settings are correct
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+
+                    var padding = 5;
+                    var position = element.tooltipPosition();
+                    ctx.fillText(dataString, position.x, position.y - (fontSize / 2) - padding);
+                });
+            }
+        });
     }
+});
+
+          let contextLang = document.querySelector('#graph-lang').getContext('2d');
+          new Chart(contextLang, {
+            type: 'doughnut',
+            data: {
+              labels: ['JavaScript', 'CSS', 'PHP', 'HTML', 'Laravel', 'SQL', 'SHELL', '情報システム基礎(その他)'],
+              datasets: [{
+                data: [42, 18, 10, 9, 8, 5, 4, 2],
+              }]
+            },
+            options: {
+              responsive: false,
+              animation: false
+            },
+            plugins: [dataLabelPlugin],
+          });
+
+          let contextContent = document.querySelector('#graph-content').getContext('2d');
+          new Chart(contextContent, {
+            type: 'doughnut',
+            data: {
+              labels: ['ドットインストール', 'N予備校', 'POSSE課題'],
+              datasets: [{
+                data: [42, 33, 25],
+              }]
+            },
+            options: {
+              responsive: false,
+              animation: false
+            }
+          });
+        }
   </script>
 
 </head>
@@ -104,7 +191,9 @@
     <div class="box-right">
       <div class="graph-lang graph-right">
         <div class="graph-lang-title graph-title">学習言語</div>
-        <canvas id="graph-lang" class="graph-lang"></canvas>
+        <div class="graph-lang-canvas">
+          <canvas id="graph-lang" class="graph-lang"></canvas>
+        </div>
         <div class="graph-lang-index">
           <!-- <ul>
             <li>JavaScript</li>
@@ -128,115 +217,115 @@
             <li>POSSE課題</li>
           </ul>
         </div> -->
+        </div>
       </div>
-    </div>
 
-    <!-- ここからモーダル -->
-    <div class="modal modal-close">
-      <button class="modal-close-button"></button>
-      <div class="modal-body">
-        <div class="modal-left">
-          <section class="modal-date">
-            <label for="date" class="modal-date-title modal-title">学習日</label>
-            <input type="text" id="data" class="modal-date-textbox modal-textbox">
-          </section>
-          <section class="modal-content">
-            <h1 class="modal-content-title modal-title">学習コンテンツ(複数選択可)</h1>
-            <div class="modal-content-choice">
-              <div>
-                <label for="content-select-1" class="modal-checkbox-text">
-                  <input type="checkbox" id="content-select-1" class="modal-checkbox">N予備校
-                </label>
+      <!-- ここからモーダル -->
+      <div class="modal modal-close">
+        <button class="modal-close-button"></button>
+        <div class="modal-body">
+          <div class="modal-left">
+            <section class="modal-date">
+              <label for="date" class="modal-date-title modal-title">学習日</label>
+              <input type="text" id="data" class="modal-date-textbox modal-textbox">
+            </section>
+            <section class="modal-content">
+              <h1 class="modal-content-title modal-title">学習コンテンツ(複数選択可)</h1>
+              <div class="modal-content-choice">
+                <div class="modal-checkbox-body">
+                  <label for="content-select-1" class="modal-checkbox-text">
+                    <input type="checkbox" id="content-select-1" class="modal-checkbox">N予備校
+                  </label>
+                </div>
+                <div class="modal-checkbox-body">
+                  <label for="content-select-2" class="modal-checkbox-text">
+                    <input type="checkbox" id="content-select-2" class="modal-checkbox">ドットインストール
+                  </label>
+                </div>
+                <div class="modal-checkbox-body">
+                  <label for="content-select-3" class="modal-checkbox-text">
+                    <input type="checkbox" id="content-select-3" class="modal-checkbox">POSSE課題
+                  </label>
+                </div>
               </div>
-              <div>
-                <label for="content-select-2" class="modal-checkbox-text">
-                  <input type="checkbox" id="content-select-2" class="modal-checkbox">ドットインストール
-                </label>
+            </section>
+            <section class="modal-lang">
+              <h1 class="modal-lang-title modal-title">学習言語(複数選択可)</h1>
+              <div class="modal-lang-choice">
+                <div class="modal-checkbox-body">
+                  <label for="lang-select-1" class="modal-checkbox-text">
+                    <input type="checkbox" id="lang-select-1" class="modal-checkbox">HTML
+                  </label>
+                </div>
+                <div class="modal-checkbox-body">
+                  <label for="lang-select-2" class="modal-checkbox-text">
+                    <input type="checkbox" id="lang-select-2" class="modal-checkbox">CSS
+                  </label>
+                </div>
+                <div class="modal-checkbox-body">
+                  <label for="lang-select-3" class="modal-checkbox-text">
+                    <input type="checkbox" id="lang-select-3" class="modal-checkbox">JavaScript
+                  </label>
+                </div>
+                <div class="modal-checkbox-body">
+                  <label for="lang-select-4" class="modal-checkbox-text">
+                    <input type="checkbox" id="lang-select-4" class="modal-checkbox">PHP
+                  </label>
+                </div>
+                <div class="modal-checkbox-body">
+                  <label for="lang-select-5" class="modal-checkbox-text">
+                    <input type="checkbox" id="lang-select-5" class="modal-checkbox">Laravel
+                  </label>
+                </div>
+                <div class="modal-checkbox-body">
+                  <label for="lang-select-6" class="modal-checkbox-text">
+                    <input type="checkbox" id="lang-select-6" class="modal-checkbox">SQL
+                  </label>
+                </div>
+                <div class="modal-checkbox-body">
+                  <label for="lang-select-7" class="modal-checkbox-text">
+                    <input type="checkbox" id="lang-select-7" class="modal-checkbox">SHELL
+                  </label>
+                </div>
+                <div class="modal-checkbox-body">
+                  <label for="lang-select-8" class="modal-checkbox-text">
+                    <input type="checkbox" id="lang-select-8" class="modal-checkbox">情報システム基礎(その他)
+                  </label>
+                </div>
               </div>
-              <div>
-                <label for="content-select-3" class="modal-checkbox-text">
-                  <input type="checkbox" id="content-select-3" class="modal-checkbox">POSSE課題
-                </label>
-              </div>
+            </section>
+          </div>
+          <div class="modal-right">
+            <section class="modal-time">
+              <label for="time" class="modal-time-title modal-title">学習時間</label>
+              <input type="text" class="modal-time-textbox modal-textbox">
+            </section>
+            <section class="modal-twitter-comment">
+              <label for="twitter" class="modal-twitter-comment-title modal-title">Twitter用コメント</label>
+              <textarea rows="12" cols="33" class="modal-twitter-comment-textbox modal-textbox"></textarea>
+            </section>
+            <section class="modal-twitter-share">
+              <label for="twitter-share" class="modal-checkbox-text modal-twitter-share-checkbox-text">
+                <input type="checkbox" id="twitter-share" class="modal-checkbox">Twitterにシェアする
+              </label>
+            </section>
+            <div>
+              <button class="modal-button">記録・投稿</button>
             </div>
-          </section>
-          <section class="modal-lang">
-            <h1 class="modal-lang-title modal-title">学習言語(複数選択可)</h1>
-            <div class="modal-lang-choice">
-              <div>
-                <label for="lang-select-1" class="modal-checkbox-text">
-                  <input type="checkbox" id="lang-select-1" class="modal-checkbox">HTML
-                </label>
-              </div>
-              <div>
-                <label for="lang-select-2" class="modal-checkbox-text">
-                  <input type="checkbox" id="lang-select-2" class="modal-checkbox">CSS
-                </label>
-              </div>
-              <div>
-                <label for="lang-select-3" class="modal-checkbox-text">
-                  <input type="checkbox" id="lang-select-3" class="modal-checkbox">JavaScript
-                </label>
-              </div>
-              <div>
-                <label for="lang-select-4" class="modal-checkbox-text">
-                  <input type="checkbox" id="lang-select-4" class="modal-checkbox">PHP
-                </label>
-              </div>
-              <div>
-                <label for="lang-select-5" class="modal-checkbox-text">
-                  <input type="checkbox" id="lang-select-5" class="modal-checkbox">Laravel
-                </label>
-              </div>
-              <div>
-                <label for="lang-select-6" class="modal-checkbox-text">
-                  <input type="checkbox" id="lang-select-6" class="modal-checkbox">SQL
-                </label>
-              </div>
-              <div>
-                <label for="lang-select-7" class="modal-checkbox-text">
-                  <input type="checkbox" id="lang-select-7" class="modal-checkbox">SHELL
-                </label>
-              </div>
-              <div>
-                <label for="lang-select-8" class="modal-checkbox-text">
-                  <input type="checkbox" id="lang-select-8" class="modal-checkbox">情報システム基礎(その他)
-                </label>
-              </div>
-            </div>
-          </section>
+          </div>
         </div>
-        <div class="modal-right">
-          <section class="modal-time">
-            <label for="time" class="modal-time-title modal-title">学習時間</label>
-            <input type="text" class="modal-time-textbox modal-textbox">
-          </section>
-          <section class="modal-twitter-comment">
-            <label for="twitter" class="modal-twitter-comment-title modal-title">Twitter用コメント</label>
-            <textarea rows="12" cols="33" class="modal-twitter-comment-textbox modal-textbox"></textarea>
-          </section>
-          <section class="modal-twitter-share">
-            <label for="twitter-share" class="modal-checkbox-text modal-twitter-share-checkbox-text">
-              <input type="checkbox" id="twitter-share" class="modal-checkbox">Twitterにシェアする
-            </label>
-          </section>
-          <div>
-            <button class="modal-button">記録・投稿</button>
+        <div class="loader modal-off">Loading...</div>
+        <div class="modal-complete modal-off">
+          <div class="modal-complete-check">
+            <div class="modal-complete-check-text">AWESOME!</div>
+            <div class="modal-complete-check-body"> <i class="modal-complete-check-img"></i></div>
+            <div class="modal-complete-text">
+              記録・投稿<br> 完了しました
+            </div>
           </div>
         </div>
       </div>
-      <div class="loader modal-off">Loading...</div>
-      <div class="modal-complete modal-off">
-        <div class="modal-complete-check">
-          <div class="modal-complete-check-text">AWESOME!</div>
-          <div class="modal-complete-check-body"> <i class="modal-complete-check-img"></i></div>
-          <div class="modal-complete-text">
-            記録・投稿<br> 完了しました
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- モーダルおわり -->
+      <!-- モーダルおわり -->
 
   </main>
   <footer>
