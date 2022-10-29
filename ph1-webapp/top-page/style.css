@@ -364,8 +364,18 @@ footer{
 }
 
 /* グラフここから */
+#graph-bar{
+  transform: translateY(20%);
+}
+
 #graph-lang{
   position: relative;
-  width: 500px;
-  /* height: 300px; */
+  width: 100%;
+  transform: translateY(10%);
+}
+
+#graph-content{
+  position: relative;
+  width: 100%;
+  transform: translateY(10%);
 }
