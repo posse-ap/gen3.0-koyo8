@@ -76,14 +76,31 @@
         </div> -->
         </div>
       </div>
-
+      
       <!-- ここからモーダル -->
       <div class="modal modal-close">
         <button class="modal-close-button"></button>
+
+        <div id="modal-calendar" class="modal-off">
+          <div class="modal-calendar">
+            <!-- xxxx年xx月を表示 -->
+            <h1 id="header"></h1>
+        
+            <!-- ボタンクリックで月移動 -->
+            <div id="next-prev-button">
+              <button id="prev" onclick="prev()">‹</button>
+              <button id="next" onclick="next()">›</button>
+            </div>
+        
+            <!-- カレンダー -->
+            <div id="calendar"></div>
+          </div>
+        </div>
+        
         <div class="modal-body">
           <div class="modal-left">
             <section class="modal-date">
-              <label for="date" class="modal-date-title modal-title">学習日</label>
+              <label for="data" class="modal-date-title modal-title">学習日</label>
               <input type="text" id="data" class="modal-date-textbox modal-textbox">
             </section>
             <section class="modal-content">
@@ -159,7 +176,8 @@
             </section>
             <section class="modal-twitter-comment">
               <label for="twitter" class="modal-twitter-comment-title modal-title">Twitter用コメント</label>
-              <textarea rows="12" cols="33" id="modal-twitter-comment-textbox" class="modal-twitter-comment-textbox modal-textbox"></textarea>
+              <textarea rows="12" cols="33" id="modal-twitter-comment-textbox"
+                class="modal-twitter-comment-textbox modal-textbox"></textarea>
             </section>
             <section class="modal-twitter-share">
               <label for="twitter-share" class="modal-checkbox-text modal-twitter-share-checkbox-text">
