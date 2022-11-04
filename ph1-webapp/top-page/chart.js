@@ -3,15 +3,30 @@
 window.onload = function () {
   var contextBar = document.querySelector('#graph-bar').getContext('2d');
 
+var barDatasets = [{
+  label: '',
+  data: [3, 4, 1, 3, 3, 4, 6, 7, 2, 4, 2, 5, 7, 8, 6, 4, 5, 1, 1, 2, 4, 3, 5, 2, 6, 8, 8, 3, 1, 4, 1],
+  backgroundColor: ['rgb(60,206,255)']
+}]
+
+for (var i = 0; i < barDatasets[0].data.length; i++) {
+  if (barDatasets[0].data[i] >= 4) {
+    barDatasets[0].backgroundColor[i] = '	rgb(26,136,204)' // 値が4以上
+  } else {
+    barDatasets[0].backgroundColor[i] = 'rgb(60,206,255)' // 値が4未満
+  }
+}
+
   new Chart(contextBar, {
     type: 'bar',
     data: {
       labels: ['', '2', '', '4', '', '6', '', '8', '', '10', '', '12', '', '14', '', '16', '', '18', '', '20', '', '22', '', '24', '', '26', '', '28', '', '30'],
-      datasets: [{
-        label: '',
-        data: [3, 4, 1, 3, 3, 4, 6, 7, 2, 4, 2, 5, 7, 8, 6, 4, 5, 1, 1, 2, 4, 3, 5, 2, 6, 8, 8, 3, 1, 4, 1],
-        backgroundColor: 'rgb(60,206,255)'
-      }],
+      datasets: barDatasets,
+      // datasets: [{
+      //   label: '',
+      //   data: [3, 4, 1, 3, 3, 4, 6, 7, 2, 4, 2, 5, 7, 8, 6, 4, 5, 1, 1, 2, 4, 3, 5, 2, 6, 8, 8, 3, 1, 4, 1],
+      //   backgroundColor: 'rgb(60,206,255)'
+      // }],
     },
     options: {
       legend: {

@@ -280,11 +280,16 @@ td.today {
 #modal-calendar{
   position: absolute;
   background-color: #ffffff;
-  width:700px;
-  height: 400px;
-  padding: 56px;
-  transform: translateY(20%);
+  box-shadow:  0 6px 10px 0 rgba(0, 0, 0, .4);
+  width: 700px;
+  height: 470px;
+  padding: 40px 56px;
+  transform: translate(10%,0%);
   z-index: 100;
+}
+
+.modal-calender{
+  height: 500;
 }
 /* カレンダーおわり */
 
