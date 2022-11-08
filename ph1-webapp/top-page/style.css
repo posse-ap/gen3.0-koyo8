@@ -1,5 +1,7 @@
 html{
   background-color: #F5F5F8;
+  /* overflow: hidden; */
+  width: 100%;
 }
 
 header{
@@ -152,10 +154,10 @@ footer{
 
 /* ここからモーダル */
 
-.active:before{
+.active::before{
   content: '';
   background-color: rgba(0,0,0,.5);
-  z-index: 2;
+  z-index: 3;
   width: 100%;
   position: absolute;
   height: 100%;
@@ -170,7 +172,7 @@ footer{
   padding: 56px;
   display: flex;
   border-radius: 40px;
-  transform: translate(-50%, -100%);
+  transform: translate(30%, 0);
 }
 
 .modal-close-button{
@@ -473,4 +475,19 @@ td.today {
   position: relative;
   width: 100%;
   transform: translateY(10%);
+}
+
+@media (max-width: 768px) {
+  html{
+    overflow: auto;
+  }
+  main{
+    display: block;
+  }
+  .box-left{
+    margin: 0;
+  }
+  .time-box{
+    width: 30%;
+  }
 }

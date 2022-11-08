@@ -143,13 +143,31 @@ function createProcess(year, month) {
         if (year == today.getFullYear()
           && month == (today.getMonth())
           && count == today.getDate()) {
-          calendar += "<td class='today'>" + count + "</td>";
+          calendar += "<td class='today td'>" + count + "</td>";
         } else {
-          calendar += "<td>" + count + "</td>";
+          calendar += '<td class="td">' + count + "</td>";
         }
       }
+      let td = document.getElementsByTagName('td');
+      console.log(td);
+      td.addEventListener('click' , () => {
+        console.log('click!');
+      })
     }
     calendar += "</tr>";
   }
   return calendar;
 }
+
+// const td = document.querySelectorAll('.td');
+// const obj = Object.fromEntries(td);
+// console.log(obj);
+
+// td.addEventListener('mouseenter' , () => {
+// console.log('hover');
+// })
+
+// アラート
+function getDate(year, month, date) {
+	alert(year + "年" + month + "月" + date + "日");
+};

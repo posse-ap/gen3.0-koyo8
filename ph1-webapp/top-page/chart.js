@@ -87,7 +87,7 @@ for (var i = 0; i < barDatasets[0].data.length; i++) {
     },
     options: {
       legend: {
-        position: 'bottom'
+        display: false
       },
       responsive: false,
       animation: false,
@@ -117,7 +117,7 @@ for (var i = 0; i < barDatasets[0].data.length; i++) {
     },
     options: {
       legend: {
-        position: 'bottom'
+        display: false
       },
       responsive: false,
       animation: false,
