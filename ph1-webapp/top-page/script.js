@@ -84,8 +84,9 @@ var showDate = new Date(today.getFullYear(), today.getMonth(), 1);
 
 // 初期表示
 date.addEventListener('click' , () => {
-  showProcess(today, calendar);
+  showProcess(today);
     modalCalendar.classList.toggle('modal-off');
+    
 });
 
 // 前の月表示
@@ -148,11 +149,6 @@ function createProcess(year, month) {
           calendar += '<td class="td">' + count + "</td>";
         }
       }
-      let td = document.getElementsByTagName('td');
-      console.log(td);
-      td.addEventListener('click' , () => {
-        console.log('click!');
-      })
     }
     calendar += "</tr>";
   }
@@ -168,6 +164,6 @@ function createProcess(year, month) {
 // })
 
 // アラート
-function getDate(year, month, date) {
-	alert(year + "年" + month + "月" + date + "日");
-};
+// function getDate(year, month, date) {
+// 	alert(year + "年" + month + "月" + date + "日");
+// };
