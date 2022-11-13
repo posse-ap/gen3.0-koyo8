@@ -4,6 +4,7 @@ const openButton = document.querySelector('.header-button');
 const closeButton = document.querySelector('.modal-close-button');
 const inputButton = document.querySelector('.modal-button');
 const body = document.querySelector('#body');
+const modalWrapper = document.querySelector('.modal-wrapper');
 const modal = document.querySelector('.modal');
 const modalBody = document.querySelector('.modal-body');
 const modalLoad = document.querySelector('.loader');
@@ -11,10 +12,24 @@ const modalComplete = document.querySelector('.modal-complete');
 const twitterCheckbox = document.querySelector('#twitter-share');
 
 const date = document.querySelector('#data');
-const modalCalendar = document.querySelector('#modal-calendar')
+const modalCalendar = document.querySelector('#modal-calendar');
+
+const footerButton = document.querySelector('.footer-button');
 
 openButton.addEventListener('click', () => {
   body.classList.add('active');
+  modalWrapper.classList.remove('modal-close');
+  modal.classList.remove('modal-close');
+  modalBody.classList.add('modal-open');
+  if (modalCalendar.classList.contains('modal-off')) {
+  } else {
+    modalCalendar.classList.add('modal-off');
+  }
+});
+
+footerButton.addEventListener('click', () => {
+  body.classList.add('active');
+  modalWrapper.classList.remove('modal-close');
   modal.classList.remove('modal-close');
   modalBody.classList.add('modal-open');
   if (modalCalendar.classList.contains('modal-off')) {
@@ -26,6 +41,7 @@ openButton.addEventListener('click', () => {
 closeButton.addEventListener('click', () => {
   body.classList.remove('active');
   modalBody.classList.remove('modal-open');
+  modalWrapper.classList.add('modal-close');
   modal.classList.add('modal-close');
   if (modalBody.classList.contains('modal-off')) {
     modalBody.classList.remove('modal-off');
@@ -39,6 +55,7 @@ if (body.classList.contains('active')) {
 body.addEventListener('click', () => {
   body.classList.remove('active');
   modalBody.classList.remove('modal-open');
+  modalWrapper.classList.add('modal-close');
   modal.classList.add('modal-close');
   if (modalBody.classList.contains('modal-off')) {
     modalBody.classList.remove('modal-off');
@@ -85,8 +102,16 @@ var showDate = new Date(today.getFullYear(), today.getMonth(), 1);
 // 初期表示
 date.addEventListener('click' , () => {
   showProcess(today);
-    modalCalendar.classList.toggle('modal-off');
-    
+  modalCalendar.classList.toggle('modal-off');
+
+  const td = document.querySelectorAll('.td');
+  const calendarTitle = document.getElementById('header');
+  td.forEach(target => {
+    target.addEventListener('click' , () => {
+      date.value = calendarTitle.innerHTML + target.innerHTML + '日';
+      modalCalendar.classList.add('modal-off');
+    })
+  })
 });
 
 // 前の月表示

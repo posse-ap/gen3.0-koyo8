@@ -26,23 +26,25 @@
   </header>
   <main>
     <div class="box-left">
-      <div class="time-today time-box">
-        <div class="time-title">Today</div>
-        <div class="time-body">3</div>
-        <div class="time-sub">hour</div>
-      </div>
-      <div class="time-month time-box">
-        <div class="time-title">Month</div>
-        <div class="time-body">120</div>
-        <div class="time-sub">hour</div>
-      </div>
-      <div class="time-total time-box">
-        <div class="time-title">Total</div>
-        <div class="time-body">1348</div>
-        <div class="time-sub">hour</div>
+      <div class="box-left-up">
+        <div class="time-today time-box">
+          <div class="time-title">Today</div>
+          <div class="time-body">3</div>
+          <div class="time-sub">hour</div>
+        </div>
+        <div class="time-month time-box">
+          <div class="time-title">Month</div>
+          <div class="time-body">120</div>
+          <div class="time-sub">hour</div>
+        </div>
+        <div class="time-total time-box">
+          <div class="time-title">Total</div>
+          <div class="time-body">1348</div>
+          <div class="time-sub">hour</div>
+        </div>
       </div>
       <div class="graph-bar">
-        <canvas id="graph-bar" class="graph-bar" width="610%"></canvas>
+        <canvas id="graph-bar" class=""></canvas>
       </div>
     </div>
     <div class="box-right">
@@ -74,10 +76,11 @@
             <li>POSSE課題</li>
           </ul>
         </div>
-        </div>
       </div>
-      
-      <!-- ここからモーダル -->
+    </div>
+
+    <!-- ここからモーダル -->
+    <div class="modal-wrapper modal-close">
       <div class="modal modal-close">
         <button class="modal-close-button"></button>
 
@@ -85,13 +88,13 @@
           <div class="modal-calendar">
             <!-- xxxx年xx月を表示 -->
             <h1 id="header"></h1>
-        
+
             <!-- ボタンクリックで月移動 -->
             <div id="next-prev-button">
               <button id="prev" onclick="prev()">‹</button>
               <button id="next" onclick="next()">›</button>
             </div>
-        
+
             <!-- カレンダー -->
             <div id="calendar"></div>
           </div>
@@ -200,13 +203,19 @@
           </div>
         </div>
       </div>
-      <!-- モーダルおわり -->
+    </div>
+    <!-- モーダルおわり -->
 
   </main>
   <footer>
-    <div class="footer-date-before"></div>
-    <div class="footer-date">2020年10月</div>
-    <div class="footer-date-after"></div>
+    <span>
+      <button class="footer-button">記録・投稿</button>
+    </span>
+    <div class="footer-body">
+      <div class="footer-date-before"></div>
+      <div class="footer-date">2020年10月</div>
+      <div class="footer-date-after"></div>
+    </div>
   </footer>
 </body>
 

@@ -32,9 +32,9 @@ for (var i = 0; i < barDatasets[0].data.length; i++) {
       legend: {
         display: false
       },
-      responsive: false,
+      responsive: true,
       animation: false,
-      maintainAspectRatio: false,
+      maintainAspectRatio: true,
       scales: {
         xAxes: [{
           display: true,
@@ -89,7 +89,7 @@ for (var i = 0; i < barDatasets[0].data.length; i++) {
       legend: {
         display: false
       },
-      responsive: false,
+      responsive: true,
       animation: false,
       plugins: {
         labels: {
@@ -119,7 +119,7 @@ for (var i = 0; i < barDatasets[0].data.length; i++) {
       legend: {
         display: false
       },
-      responsive: false,
+      responsive: true,
       animation: false,
       plugins: {
         labels: {
