@@ -181,7 +181,11 @@ li {
   height: 100%;
   z-index: 3;
   position: absolute;
-  transform: translateY(-64px);
+  /* transform: translateY(-64px); */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .modal {
@@ -390,6 +394,11 @@ td.today {
   margin-bottom: 5px;
 }
 
+textarea {
+  width: 100%;
+  height: 250px;
+}
+
 .modal-twitter-share-checkbox-text {
   background-color: white;
 }
@@ -505,7 +514,7 @@ td.today {
   content: '';
   position: absolute;
   display: block;
-  top: 30%;
+  top: 28%;
   left: 47%;
   width: 40px;
   height: 25px;
@@ -590,26 +599,53 @@ td.today {
   /* @media モーダルここから */
 
   .modal-wrapper {
-    transform: translate(0, -110%);
+    position: absolute;
+    /* transform: translateY(-85%); */
   }
 
   .modal {
     transform: translate(0, 10%);
+    border-radius: 40px 40px 0 0;
     width: 100%;
-    height: auto;
+    height: 100%;
     padding: 50px 40px;
+    position: absolute;
   }
 
   .modal-open {
     display: block;
   }
 
+  .modal-off {
+    display: none;
+  }
+
+  .modal-load-on {
+    display: block;
+  }
+
+
+  .modal-title {
+    font-size: 8px;
+  }
+
+  .modal-checkbox-text {
+    font-size: 8px;
+  }
+
   .modal-date {
     width: 80%;
   }
 
+  #modal-calendar{
+    width: 80%;
+    padding: 16px;
+    transform: translateX(-2%);
+  }
+
   .modal-textbox {
     margin: 0;
+    padding: 8px;
   }
 
   .modal-lang {
@@ -629,11 +665,42 @@ td.today {
     width: 80%;
   }
 
+  textarea {
+    height: 100px;
+  }
+
+  .modal-close-button {
+    transform: translate(280px, -30px);
+    padding: 16px;
+  }
+
+  .modal-close-button::before,
+  .modal-close-button::after {
+    /* 共通設定 */
+    content: "";
+    position: absolute;
+    width: 2px;
+    /* 棒の幅（太さ） */
+    height: 20px;
+    /* 棒の高さ */
+    background: #666666;
+  }
+
+  .modal-complete-on {
+    display: block;
+    transform: translateX(-25%);
+  }
+
+  .modal-complete-check-img:before {
+    left: 47.5%;
+  }
+
   .modal-button {
-    transform: translateX(0);
+    margin-left: 40%;
   }
 
   /* モーダルおわり */
+
   .footer-button {
     display: block;
     background: linear-gradient(to right, #0F71BC, #3BCDFD);
