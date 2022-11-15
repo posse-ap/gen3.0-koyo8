@@ -426,7 +426,7 @@ td.today {
 }
 
 .loader {
-  margin: auto;
+  margin: 20% auto;
   font-size: 10px;
   position: relative;
   text-indent: -9999em;
@@ -478,6 +478,10 @@ td.today {
   display: block;
 }
 
+.modal-complete-check {
+  transform: translateX(-8%);
+}
+
 .modal-complete-check-text {
   text-align: center;
   color: #BEE360;
@@ -501,8 +505,8 @@ td.today {
   content: '';
   position: absolute;
   display: block;
-  top: 43%;
-  left: 48%;
+  top: 30%;
+  left: 47%;
   width: 40px;
   height: 25px;
   border-left: 4px solid #FFFFFD;
@@ -604,7 +608,7 @@ td.today {
     width: 80%;
   }
 
-  .modal-textbox{
+  .modal-textbox {
     margin: 0;
   }
 
