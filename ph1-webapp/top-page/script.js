@@ -51,6 +51,19 @@ closeButton.addEventListener('click', () => {
   }
 });
 
+// modalWrapper.addEventListener('click', () => {
+//   body.classList.remove('active');
+//   modalBody.classList.remove('modal-open');
+//   modalWrapper.classList.add('modal-close');
+//   modal.classList.add('modal-close');
+//   if (modalBody.classList.contains('modal-off')) {
+//     modalBody.classList.remove('modal-off');
+//   }
+//   if (modalComplete.classList.contains('modal-complete-on')) {
+//     modalComplete.classList.remove('modal-complete-on');
+//   }
+// });
+
 if (body.classList.contains('active')) {
 body.addEventListener('click', () => {
   body.classList.remove('active');
