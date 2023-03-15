@@ -4,13 +4,29 @@ $dsn = 'mysql:dbname=posse;host=db';
 $user = 'root';
 $password = 'root';
 
-$pdo = new PDO('mysql:host=db;dbname=posse','root','root');
+$pdo = new PDO('mysql:host=db;dbname=web-app','root','root');
 
 $today = date('Y-m-d');
+$month = date('Y-m');
 
 $sql = 'SELECT sum(hour) FROM times WHERE date = :date';
 $stmt = $pdo->prepare($sql);
-$stmt->bindValue()
+$stmt->bindValue(':date', $today);
+$stmt->execute();
+$today_hour = $stmt->fetch();
+
+// var_dump($month);
+
+$sql = 'SELECT sum(hour) FROM times WHERE date LIKE :date';
+$stmt = $pdo->prepare($sql);
+$stmt->bindValue(':date', $month . '%');
+$stmt->execute();
+$month_hour = $stmt->fetch();
+
+$sql = 'SELECT sum(hour) FROM times';
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+$total_hour = $stmt->fetch();
 
 ?>
 
@@ -45,17 +61,35 @@ $stmt->bindValue()
       <div class="box-left-up">
         <div class="time-today time-box">
           <div class="time-title">Today</div>
-          <div class="time-body">3</div>
+          <div class="time-body">
+            <? if(isset($today_hour)) {
+              print $today_hour["sum(hour)"];
+            } else {
+              print "0";
+            } ?>
+          </div>
           <div class="time-sub">hour</div>
         </div>
         <div class="time-month time-box">
           <div class="time-title">Month</div>
-          <div class="time-body">120</div>
+          <div class="time-body">
+          <? if(isset($month_hour)) {
+              print $month_hour["sum(hour)"];
+            } else {
+              print "0";
+            } ?>
+          </div>
           <div class="time-sub">hour</div>
         </div>
         <div class="time-total time-box">
           <div class="time-title">Total</div>
-          <div class="time-body">1348</div>
+          <div class="time-body">
+          <? if(isset($month_hour)) {
+              print $total_hour["sum(hour)"];
+            } else {
+              print "0";
+            } ?>
+          </div>
           <div class="time-sub">hour</div>
         </div>
       </div>

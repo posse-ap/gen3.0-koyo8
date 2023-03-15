@@ -22,10 +22,10 @@ CREATE TABLE study_languages (
 );
 
 INSERT INTO `times` VALUES 
-(1, '2023-03-11', 3),
+(1, '2022-03-11', 3),
 (2, '2023-03-12', 4),
 (3, '2023-03-12', 2),
-(4, '2023-03-14', 6)
+(4, '2023-03-15', 6)
 
 INSERT INTO `study_contents` VALUE 
 (1, 1, 'N予備校'),
