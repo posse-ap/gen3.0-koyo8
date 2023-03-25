@@ -15,8 +15,6 @@ $stmt->bindValue(':date', $today);
 $stmt->execute();
 $today_hour = $stmt->fetch();
 
-// var_dump($month);
-
 $sql = 'SELECT sum(hour) FROM times WHERE date LIKE :date';
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':date', $month . '%');
@@ -28,6 +26,79 @@ $stmt = $pdo->prepare($sql);
 $stmt->execute();
 $total_hour = $stmt->fetch();
 
+$sql = 'SELECT * FROM times WHERE date LIKE :date';
+$stmt = $pdo->prepare($sql);
+$stmt->bindValue(':date', $month . '%');
+$stmt->execute();
+$month_times = $stmt->fetchAll();
+
+$sql = 'SELECT SUBSTRING(date, 9, 2), sum(hour) FROM times WHERE date LIKE :date GROUP BY date ORDER BY date ASC';
+$stmt = $pdo->prepare($sql);
+$stmt->bindValue(':date', $month . '%');
+$stmt->execute();
+$month_hours = $stmt->fetchAll();
+
+$sql = 'SELECT date, hour, content FROM times JOIN study_contents ON times.id = study_contents.times_id';
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+
+$sql = 'SELECT sum(hour), content FROM times JOIN study_contents ON times.id = study_contents.times_id GROUP BY content';
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+$contents_hour = $stmt->fetchAll();
+
+$sql = 'SELECT count(times_id), date FROM times JOIN study_contents ON times.id = study_contents.times_id GROUP BY date';
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+$contents_count = $stmt->fetchAll();
+
+// $sql = 'SELECT sum(hour), s.content FROM (SELECT sum(hour) / count(study_contents.content) as hour, count(times_id), date FROM times JOIN study_contents ON times.id = study_contents.times_id GROUP BY date) as s GROUP BY content';
+
+$sql = 'SELECT sum(hour), content FROM (SELECT sum(hour) / POWER(count(study_contents.times_id), 2) as hour, count(times_id), study_contents.times_id FROM times JOIN study_contents ON times.id = study_contents.times_id GROUP BY times_id) as s LEFT OUTER JOIN study_contents ON s.times_id = study_contents.times_id GROUP BY study_contents.content ORDER BY sum(hour) DESC';
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+$contents = $stmt->fetchAll();
+
+$sql = 'SELECT sum(hour), language FROM (SELECT sum(hour) / POWER(count(study_languages.times_id), 2) as hour, count(times_id), study_languages.times_id FROM times JOIN study_languages ON times.id = study_languages.times_id GROUP BY times_id) as s LEFT OUTER JOIN study_languages ON s.times_id = study_languages.times_id GROUP BY study_languages.language ORDER BY sum(hour) DESC';
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+$languages = $stmt->fetchAll();
+
+?><pre>
+  <? var_dump($contents_hour); ?>
+  -----------------------------------------------------------
+  <? var_dump($contents_count); ?>
+  -----------------------------------------------------------
+  <? var_dump($contents); ?>
+</pre><?
+
+// phpでjsonを書いた
+// $data = [
+//   [
+//     "day" => 1,
+//     "time" => 3
+//   ],
+//   [
+//     "day" => 2,
+//     "time" => 4
+//   ],
+//   [
+//     "day" => 3,
+//     "time" => 5
+//   ]
+// ];
+
+// foreach ($month_times as $value) {
+//   $value = $value;
+// }
+
+// $jsonData = json_encode($data, JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
+// file_put_contents("./data.json", $jsonData);
+
+// 棒グラフのところやりたい
+// jsonでphpの関数をjsにもっていく
+// dateだけ、hourだけにしたい
+
 ?>
 
 <!DOCTYPE html>
@@ -38,12 +109,12 @@ $total_hour = $stmt->fetch();
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>top-page</title>
-  <link rel="stylesheet" href="./reset1.css">
-  <link rel="stylesheet" href="./style.css">
-  <script src="./script.js" defer></script>
+  <link rel="stylesheet" href="./styles/reset1.css">
+  <link rel="stylesheet" href="./styles/style.css">
+  <script src="./scripts/script.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
   <script src="../chartjs-plugin-labels-master/src/chartjs-plugin-labels.js"></script>
-  <script src="./chart.js" defer></script>
+  <!-- <script src="./scripts/chart.js" defer></script> -->
 </head>
 
 <body id="body">
@@ -62,10 +133,10 @@ $total_hour = $stmt->fetch();
         <div class="time-today time-box">
           <div class="time-title">Today</div>
           <div class="time-body">
-            <? if(isset($today_hour)) {
-              print $today_hour["sum(hour)"];
+            <? if(isset($today_hour["sum(hour)"])) {
+              echo $today_hour["sum(hour)"];
             } else {
-              print "0";
+              echo "0";
             } ?>
           </div>
           <div class="time-sub">hour</div>
@@ -73,10 +144,10 @@ $total_hour = $stmt->fetch();
         <div class="time-month time-box">
           <div class="time-title">Month</div>
           <div class="time-body">
-          <? if(isset($month_hour)) {
-              print $month_hour["sum(hour)"];
+          <? if(isset($month_hour["sum(hour)"])) {
+              echo $month_hour["sum(hour)"];
             } else {
-              print "0";
+              echo "0";
             } ?>
           </div>
           <div class="time-sub">hour</div>
@@ -84,10 +155,10 @@ $total_hour = $stmt->fetch();
         <div class="time-total time-box">
           <div class="time-title">Total</div>
           <div class="time-body">
-          <? if(isset($month_hour)) {
-              print $total_hour["sum(hour)"];
+          <? if(isset($month_hour["sum(hour)"])) {
+              echo $total_hour["sum(hour)"];
             } else {
-              print "0";
+              echo "0";
             } ?>
           </div>
           <div class="time-sub">hour</div>
@@ -265,10 +336,193 @@ $total_hour = $stmt->fetch();
     </span>
     <div class="footer-body">
       <div class="footer-date-before"></div>
-      <div class="footer-date">2020年10月</div>
+      <div class="footer-date"><? echo date('Y年m月'); ?></div>
       <div class="footer-date-after"></div>
     </div>
   </footer>
 </body>
+
+<!-- ここからchart.js -->
+
+<script>
+  'use strict';
+
+window.onload = function () {
+  var contextBar = document.querySelector('#graph-bar').getContext('2d');
+  
+  var barDatasets = [{
+  // label: '',
+  // data: [3, 4, 1, 3, 3, 4, 6, 7, 2, 4, 2, 5, 7, 8, 6, 4, 5, 1, 1, 2, 4, 3, 5, 2, 6, 8, 8, 3, 1, 4,],
+  data: [<?php
+    foreach($month_hours as $arr) {
+      echo $arr["sum(hour)"] . ",";
+    }
+    ?>],  //sqlにカレンダー作ってガッチャンコする？　https://ja.stackoverflow.com/questions/12597/sql%E3%81%A7%E7%84%A1%E3%81%84%E3%83%87%E3%83%BC%E3%82%BF%E3%82%92%E8%A1%A8%E7%A4%BA%E3%81%95%E3%81%9B%E3%81%9F%E3%81%84 、 https://lightgauge.net/database/mysql/5402/
+  backgroundColor: ['rgb(60,206,255)']
+}]
+
+for (var i = 0; i < barDatasets[0].data.length; i++) {
+  if (barDatasets[0].data[i] >= 4) {
+    barDatasets[0].backgroundColor[i] = '	rgb(26,136,204)' // 値が4以上
+  } else {
+    barDatasets[0].backgroundColor[i] = 'rgb(60,206,255)' // 値が4未満
+  }
+}
+
+  new Chart(contextBar, {
+    type: 'bar',
+    data: {
+      // labels: ['', '2', '', '4', '', '6', '', '8', '', '10', '', '12', '', '14', '', '16', '', '18', '', '20', '', '22', '', '24', '', '26', '', '28', '', '30',],
+      labels: [<?php
+        foreach($month_hours as $arr){
+          if((int) $arr["SUBSTRING(date, 9, 2)"] % 2 == 1) {
+            echo "'',";
+          } else {
+            if($arr["SUBSTRING(date, 9, 2)"] < 10){
+              echo "'" . (int) substr($arr["SUBSTRING(date, 9, 2)"], 1, 1) . "'" . ",";
+            } else {
+              echo "'" . (int) $arr['SUBSTRING(date, 9, 2)'] . "'" . ",";
+            }
+          }
+        }
+        ?>],
+      datasets: barDatasets,
+      // datasets: [{
+      //   label: '',
+      //   data: [3, 4, 1, 3, 3, 4, 6, 7, 2, 4, 2, 5, 7, 8, 6, 4, 5, 1, 1, 2, 4, 3, 5, 2, 6, 8, 8, 3, 1, 4, 1],
+      //   backgroundColor: 'rgb(60,206,255)'
+      // }],
+    },
+    options: {
+      legend: {
+        display: false
+      },
+      responsive: true,
+      animation: false,
+      maintainAspectRatio: true,
+      scales: {
+        xAxes: [{
+          display: true,
+          stacked: false,
+          gridLines: {
+            display: false
+          }
+        }],
+        yAxes: [{
+          gridLines: {
+            display: false
+          },
+          ticks: {
+            min: 0,
+            callback: function (tick) {
+              return tick.toString() + 'h';
+            }
+          }
+        }],
+      },
+      plugins: {
+        labels: {
+          fontSize: 0
+        }
+      }
+    },
+  });
+
+  let contextLang = document.querySelector('#graph-lang').getContext('2d');
+  new Chart(contextLang, {
+    type: 'doughnut',
+    data: {
+      labels: [<?php
+    foreach($contents as $arr) {
+      echo "'" . $arr["content"] . "'" . ",";
+    }
+    ?>],
+      datasets: [{
+        data: [<?php
+    foreach($contents as $arr) {
+      echo (int) $arr["sum(hour)"] . ",";
+    }
+    ?>],
+        datalabels: {
+          
+        },
+        backgroundColor: [
+          'rgb(3,69,236)',
+          'rgb(15,113,189)',
+          'rgb(32,189,222)',
+          'rgb(60,206,254)',
+          'rgb(178,158,243)',
+          'rgb(109,70,236)',
+          'rgb(74,23,239)',
+          'rgb(49,5,192)',
+        ]
+      }]
+    },
+    options: {
+      legend: {
+        display: false
+      },
+      responsive: true,
+      animation: false,
+      plugins: {
+        labels: {
+          render: 'percentage',
+          fontColor: 'white',
+          fontSize: 15,
+        }
+      }
+    },
+  });
+
+  let contextContent = document.querySelector('#graph-content').getContext('2d');
+  new Chart(contextContent, {
+    type: 'doughnut',
+    data: {
+      labels: [<?php
+    foreach($languages as $arr) {
+      echo "'" . $arr["language"] . "'" . ",";
+    }
+    ?>],
+      datasets: [{
+        data: [<?php
+    foreach($languages as $arr) {
+      echo $arr["sum(hour)"] . ",";
+    }
+    ?>],
+        backgroundColor: [
+          'rgb(3,69,236)',
+          'rgb(15,113,189)',
+          'rgb(32,189,222)'
+        ]
+      }]
+    },
+    options: {
+      legend: {
+        display: false
+      },
+      responsive: true,
+      animation: false,
+      plugins: {
+        labels: {
+          render: 'percentage',
+          fontColor: 'white',
+          fontSize: 15,
+        }
+      }
+    }
+  });
+}
+
+// jsonと格闘
+  // fetch('./data.json')
+  // .then(response => {
+  //   return response.json();
+  // })
+  // .then(data => {
+  //   data.forEach((v) => {
+  //     console.log(v.time + ",");
+  //   })
+  // })
+</script>
 
 </html>
